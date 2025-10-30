@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Ensure theme persistence: set 'dark' class early based on localStorage to avoid flash and keep consistency across pages -->
+<script>/* theme init */(function(){try{var d=localStorage.getItem('darkMode');if(d==='true')document.documentElement.classList.add('dark');else if(d==='false')document.documentElement.classList.remove('dark');}catch(e){} })();</script>
+<title>Professional Certificates - Vijay Kiran Kesanapalli</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1173d4",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+    
+    body {
+      background: linear-gradient(135deg, #f6f7f8 0%, #e9ecef 50%, #f6f7f8 100%);
+      background-attachment: fixed;
+    }
+    
+    .dark body {
+      background: linear-gradient(135deg, #101922 0%, #0a1219 50%, #101922 100%);
+      background-attachment: fixed;
+    }
+    
+    .certificate-card {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      text-decoration: none;
+    }
+    
+    .certificate-card::after {
+      /* use a simple triangle glyph instead of a replacement character */
+      content: '▶ Click to open certificate';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(17, 115, 212, 0.95), transparent);
+      color: white;
+      padding: 20px 10px 10px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease-in-out;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      pointer-events: none;
+    }
+    
+    .certificate-card:hover::after {
+      transform: translateY(0);
+    }
+
+    /* Modal styles */
+    #certificateModal {
+      /* do NOT set `display` here — rely on the element's utility classes (e.g. `flex`) and the `.hidden` class to control visibility.
+         Setting `display` on the ID selector overrides the `.hidden` class (higher specificity) and caused the modal to be visible by default.
+      */
+      position: fixed;
+      z-index: 50;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+  /* backdrop-blur: 4px; */
+  /* If you want blur, use: */
+  backdrop-filter: blur(4px);
+      justify-content: center;
+      align-items: center;
+    }
+
+    #certificateModal .modal-content {
+      background-color: #fff;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      max-width: 800px;
+      width: 90%;
+      position: relative;
+      /* transition for subtle entrance */
+      transform: translateY(6px) scale(0.995);
+      opacity: 0;
+      transition: transform 220ms cubic-bezier(.2,.9,.2,1), opacity 220ms ease-out;
+    }
+
+    #certificateModal.show .modal-content {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    #certificateModal .close-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    #certificateModal img,
+    #certificateModal iframe {
+      max-width: 100%;
+      border-radius: 0.5rem;
+      display: block;
+      /* ensure images scale properly inside the modal */
+      height: auto;
+      max-height: calc(90vh - 160px);
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark pt-24">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Navigation Header (same as home for consistency) -->
+<div class="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8">
+  <nav class="max-w-6xl mx-auto bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md rounded-full shadow-lg border border-gray-200/50 dark:border-gray-700/50">
+    <div class="px-6">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-2xl">account_circle</span>
+          <span class="text-xl font-bold text-gray-900 dark:text-white">Vijay Kiran K</span>
+        </div>
+        <div class="hidden md:flex items-center gap-6">
+          <a href="main page.html#home" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">Home</a>
+          <a href="main page.html#projects" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">Projects</a>
+          <a href="main page.html#about" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">About</a>
+          <a href="main page.html#experience" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">Experience</a>
+          <a href="main page.html#achievements" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">Certificates</a>
+          <a href="main page.html#contact" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">Contact</a>
+          <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-110 transition-all duration-200">
+            <span id="darkModeIcon" class="material-symbols-outlined text-gray-700 dark:text-gray-300">light_mode</span>
+          </button>
+        </div>
+        <div class="md:hidden flex items-center gap-2">
+          <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-110 transition-all duration-200">
+            <span id="darkModeIconMobile" class="material-symbols-outlined text-gray-700 dark:text-gray-300">light_mode</span>
+          </button>
+          <button onclick="toggleMobileMenu()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-110 transition-all duration-200">
+            <span class="material-symbols-outlined text-gray-700 dark:text-gray-300">menu</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="hidden md:hidden fixed top-24 left-4 right-4 z-40 bg-background-light dark:bg-background-dark rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700">
+  <div class="px-6 py-6 space-y-4">
+    <a href="main page.html#home" class="block text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:translate-x-2 transition-all duration-200 py-2">Home</a>
+    <a href="main page.html#projects" class="block text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:translate-x-2 transition-all duration-200 py-2">Projects</a>
+    <a href="main page.html#about" class="block text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:translate-x-2 transition-all duration-200 py-2">About</a>
+    <a href="main page.html#experience" class="block text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:translate-x-2 transition-all duration-200 py-2">Experience</a>
+    <a href="main page.html#achievements" class="block text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:translate-x-2 transition-all duration-200 py-2">Certificates</a>
+    <a href="main page.html#contact" class="block text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:translate-x-2 transition-all duration-200 py-2">Contact</a>
+  </div>
+</div>
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<main class="flex-1 mt-8">
+<!-- PageHeading Component -->
+<div class="flex flex-wrap justify-between gap-3 p-4">
+<div class="flex min-w-72 flex-col gap-3">
+<p class="text-gray-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Professional Certificates</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-base font-normal leading-normal">Click on any certificate to view it in full screen. All 13 certificates are displayed below.</p>
+</div>
+</div>
+<!-- ImageGrid Component -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+<!-- Google UX Professional Certificate (JPG) - MAIN CERTIFICATE -->
+<a href="user data/google-ux-design-professional-certificate-v2.jpeg" class="flex flex-col gap-3 pb-3 group cursor-pointer certificate-card rounded-xl bg-gradient-to-br from-white/60 to-white/30 dark:from-gray-800/50 dark:to-gray-900/30 backdrop-blur-md p-4 shadow-lg border border-white/20 dark:border-gray-700/30 hover:shadow-2xl hover:border-primary/30 transition-all duration-300">
+<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-lg overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:scale-105" data-alt="Google UX Professional Certificate" style='background-image: url("user data/google-ux-design-professional-certificate-v2.jpeg");'></div>
+<div class="px-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Google UX Design Professional Certificate</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Google | Coursera</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">7-Course Specialization</p>
+</div>
+</a>
+
+<!-- Udemy Figma Certificate (JPG) -->
+<a href="user data/Udemy_Figma_certificate-1.jpg" class="flex flex-col gap-3 pb-3 group cursor-pointer certificate-card rounded-xl bg-gradient-to-br from-white/60 to-white/30 dark:from-gray-800/50 dark:to-gray-900/30 backdrop-blur-md p-4 shadow-lg border border-white/20 dark:border-gray-700/30 hover:shadow-2xl hover:border-primary/30 transition-all duration-300">
+<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-lg overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:scale-105" data-alt="Udemy Figma Certificate" style="background-image: url('user data/Udemy_Figma_certificate-1.jpg');"></div>
+<div class="px-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Figma UI/UX Design Essentials</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Udemy</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Complete Figma Course</p>
+</div>
+</a>
+
+<!-- IBM UX Design Certificate (JPG) -->
+<a href="user data/IBM_UX_design_certificate.jpeg" class="flex flex-col gap-3 pb-3 group cursor-pointer certificate-card rounded-xl bg-gradient-to-br from-white/60 to-white/30 dark:from-gray-800/50 dark:to-gray-900/30 backdrop-blur-md p-4 shadow-lg border border-white/20 dark:border-gray-700/30 hover:shadow-2xl hover:border-primary/30 transition-all duration-300">
+<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-lg overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:scale-105" data-alt="IBM UX Design Certificate" style='background-image: url("user data/IBM_UX_design_certificate.jpeg");'></div>
+<div class="px-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">IBM UX Design Certificate</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">IBM</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">User Experience Design</p>
+</div>
+</a>
+
+<!-- Georgia Tech UX Certificate (JPG) -->
+<a href="user data/Georgia Tech UX certificate.jpg" class="flex flex-col gap-3 pb-3 group cursor-pointer certificate-card rounded-xl bg-gradient-to-br from-white/60 to-white/30 dark:from-gray-800/50 dark:to-gray-900/30 backdrop-blur-md p-4 shadow-lg border border-white/20 dark:border-gray-700/30 hover:shadow-2xl hover:border-primary/30 transition-all duration-300">
+<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-lg overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:scale-105" data-alt="Georgia Tech UX Certificate" style='background-image: url("user data/Georgia Tech UX certificate.jpg");'></div>
+<div class="px-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Georgia Tech UX Certificate</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Georgia Institute of Technology</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">User Experience Design</p>
+</div>
+</a>
+
+<!-- Google UX Course 1 (JPG) -->
+<a href="user data/Google_UX_certificate_1_Coursera-1.jpg" class="flex flex-col gap-3 pb-3 group cursor-pointer certificate-card rounded-xl bg-gradient-to-br from-white/60 to-white/30 dark:from-gray-800/50 dark:to-gray-900/30 backdrop-blur-md p-4 shadow-lg border border-white/20 dark:border-gray-700/30 hover:shadow-2xl hover:border-primary/30 transition-all duration-300">
+<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-lg overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:scale-105" data-alt="Google UX Certificate Course 1" style="background-image: url('user data/Google_UX_certificate_1_Coursera-1.jpg');"></div>
+<div class="px-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Google UX Design - Course 1</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Google | Coursera</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Foundations of User Experience</p>
+</div>
+</a>
+
+<!-- Google UX Course 2 (JPG) -->
+<a href="user data/Google_UX_certificate_2_Coursera-1.jpg" class="flex flex-col gap-3 pb-3 group cursor-pointer certificate-card rounded-xl bg-gradient-to-br from-white/60 to-white/30 dark:from-gray-800/50 dark:to-gray-900/30 backdrop-blur-md p-4 shadow-lg border border-white/20 dark:border-gray-700/30 hover:shadow-2xl hover:border-primary/30 transition-all duration-300">
+<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-lg overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:scale-105" data-alt="Google UX Certificate Course 2" style="background-image: url('user data/Google_UX_certificate_2_Coursera-1.jpg');"></div>
+<div class="px-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Google UX Design - Course 2</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Google | Coursera</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Start the UX Design Process</p>
+</div>
+</a>
+
+<!-- Google UX Course 3 (JPG) -->
+<a href="user data/Google_UX_certificate_3_Coursera-1.jpg" class="flex flex-col gap-3 pb-3 group cursor-pointer certificate-card rounded-xl bg-gradient-to-br from-white/60 to-white/30 dark:from-gray-800/50 dark:to-gray-900/30 backdrop-blur-md p-4 shadow-lg border border-white/20 dark:border-gray-700/30 hover:shadow-2xl hover:border-primary/30 transition-all duration-300">
+<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-lg overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:scale-105" data-alt="Google UX Certificate Course 3" style="background-image: url('user data/Google_UX_certificate_3_Coursera-1.jpg');"></div>
+<div class="px-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Google UX Design - Course 3</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Google | Coursera</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Build Wireframes and Prototypes</p>
+</div>
+</a>
+
+<!-- Google UX Course 4 (JPG) -->
+<a href="user data/Google_UX_certificate_4_Coursera-1.jpg" class="flex flex-col gap-3 pb-3 group cursor-pointer certificate-card rounded-xl bg-gradient-to-br from-white/60 to-white/30 dark:from-gray-800/50 dark:to-gray-900/30 backdrop-blur-md p-4 shadow-lg border border-white/20 dark:border-gray-700/30 hover:shadow-2xl hover:border-primary/30 transition-all duration-300">
+<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-lg overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:scale-105" data-alt="Google UX Certificate Course 4" style="background-image: url('user data/Google_UX_certificate_4_Coursera-1.jpg');"></div>
+<div class="px-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Google UX Design - Course 4</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Google | Coursera</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Conduct UX Research</p>
+</div>
+</a>
+
+<!-- Google UX Course 5 (JPG) -->
+<a href="user data/Google_UX_certificate_5_Coursera-1.jpg" class="flex flex-col gap-3 pb-3 group cursor-pointer certificate-card rounded-xl bg-gradient-to-br from-white/60 to-white/30 dark:from-gray-800/50 dark:to-gray-900/30 backdrop-blur-md p-4 shadow-lg border border-white/20 dark:border-gray-700/30 hover:shadow-2xl hover:border-primary/30 transition-all duration-300">
+<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-lg overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:scale-105" data-alt="Google UX Certificate Course 5" style="background-image: url('user data/Google_UX_certificate_5_Coursera-1.jpg');"></div>
+<div class="px-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Google UX Design - Course 5</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Google | Coursera</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Create High-Fidelity Designs</p>
+</div>
+</a>
+
+<!-- Google UX Course 6 (JPG) -->
+<a href="user data/Google_UX_certificate_6_Coursera-1.jpg" class="flex flex-col gap-3 pb-3 group cursor-pointer certificate-card rounded-xl bg-gradient-to-br from-white/60 to-white/30 dark:from-gray-800/50 dark:to-gray-900/30 backdrop-blur-md p-4 shadow-lg border border-white/20 dark:border-gray-700/30 hover:shadow-2xl hover:border-primary/30 transition-all duration-300">
+<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-lg overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:scale-105" data-alt="Google UX Certificate Course 6" style="background-image: url('user data/Google_UX_certificate_6_Coursera-1.jpg');"></div>
+<div class="px-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Google UX Design - Course 6</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Google | Coursera</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Responsive Web Design</p>
+</div>
+</a>
+
+<!-- Google UX Course 7 (JPG) -->
+<a href="user data/Google_UX_certificate_7_Coursera-1.jpg" class="flex flex-col gap-3 pb-3 group cursor-pointer certificate-card rounded-xl bg-gradient-to-br from-white/60 to-white/30 dark:from-gray-800/50 dark:to-gray-900/30 backdrop-blur-md p-4 shadow-lg border border-white/20 dark:border-gray-700/30 hover:shadow-2xl hover:border-primary/30 transition-all duration-300">
+<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-lg overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:scale-105" data-alt="Google UX Certificate Course 7" style="background-image: url('user data/Google_UX_certificate_7_Coursera-1.jpg');"></div>
+<div class="px-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Google UX Design - Course 7</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Google | Coursera</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Design a User Experience for Social Good</p>
+</div>
+</a>
+
+<!-- Google UX Professional Full (JPG) -->
+<a href="user data/Google_UX_professional_certificate_Coursera-1.jpg" class="flex flex-col gap-3 pb-3 group cursor-pointer certificate-card rounded-xl bg-gradient-to-br from-white/60 to-white/30 dark:from-gray-800/50 dark:to-gray-900/30 backdrop-blur-md p-4 shadow-lg border border-white/20 dark:border-gray-700/30 hover:shadow-2xl hover:border-primary/30 transition-all duration-300">
+<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-lg overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:scale-105" data-alt="Google UX Professional Certificate" style="background-image: url('user data/Google_UX_professional_certificate_Coursera-1.jpg');"></div>
+<div class="px-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Google UX Professional (PDF)</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Google | Coursera</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Complete Professional Certificate</p>
+</div>
+</a>
+
+<!-- Udemy AI for UX Research (JPG) -->
+<a href="user data/Udemy_Ai_for_UX_research-1.jpg" class="flex flex-col gap-3 pb-3 group cursor-pointer certificate-card rounded-xl bg-gradient-to-br from-white/60 to-white/30 dark:from-gray-800/50 dark:to-gray-900/30 backdrop-blur-md p-4 shadow-lg border border-white/20 dark:border-gray-700/30 hover:shadow-2xl hover:border-primary/30 transition-all duration-300">
+<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-lg overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:scale-105" data-alt="Udemy AI for UX Research Certificate" style="background-image: url('user data/Udemy_Ai_for_UX_research-1.jpg');"></div>
+<div class="px-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">AI for UX Research</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Udemy</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Artificial Intelligence in UX</p>
+</div>
+</a>
+</div>
+<!-- Back to Portfolio Button -->
+<div class="flex items-center justify-center p-4 mt-8">
+<a href="main page.html" class="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full hover:bg-opacity-90 hover:scale-105 hover:shadow-lg transition-all duration-200 font-medium">
+<span class="material-symbols-outlined">arrow_back</span>
+<span>Back to Portfolio</span>
+</a>
+</div>
+</main>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Modal Popup for Certificate Preview -->
+<div id="certificateModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm hidden">
+  <div class="modal-content relative bg-white dark:bg-gray-900 rounded-xl shadow-2xl max-w-3xl w-full p-6 flex flex-col items-center" role="dialog" aria-modal="true">
+    <button onclick="closeModal()" aria-label="Close certificate preview" title="Close" class="absolute top-4 right-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-primary/20 transition-all">
+      <span class="material-symbols-outlined text-gray-800 dark:text-white">close</span>
+    </button>
+    <div id="certificateContent" class="w-full flex items-center justify-center" style="min-height:220px;">
+      <!-- Certificate will be loaded here -->
+    </div>
+  </div>
+</div>
+<script>
+// Modal logic
+function openModal(url) {
+  const modal = document.getElementById('certificateModal');
+  const content = document.getElementById('certificateContent');
+  // Clear previous content
+  content.innerHTML = '';
+  console.log('[certificates] openModal called with url:', url);
+  try {
+    // Determine file type
+    const decoded = String(url || '').trim();
+    if (decoded.match(/\.(jpg|jpeg|png)$/i)) {
+      const safe = encodeURI(decoded);
+      console.log('[certificates] rendering image with safe url:', safe);
+      // create image element programmatically so we can attach an onerror handler
+      const img = document.createElement('img');
+      img.src = safe;
+      img.alt = 'Certificate';
+      img.style.maxWidth = '90vw';
+      img.style.maxHeight = 'calc(90vh - 160px)';
+      img.style.display = 'block';
+      img.style.margin = 'auto';
+      img.style.borderRadius = '0.75rem';
+      img.style.boxShadow = '0 10px 30px rgba(0,0,0,0.2)';
+      img.style.objectFit = 'contain';
+      img.onerror = function() {
+        console.error('[certificates] image failed to load:', safe);
+        const c = document.getElementById('certificateContent');
+        if (c) c.innerHTML = '<p class="text-center text-lg">Unable to load certificate image.</p>';
+      };
+      content.appendChild(img);
+    } else if (decoded.match(/\.pdf$/i)) {
+      const safe = encodeURI(decoded);
+      console.log('[certificates] rendering pdf with safe url:', safe);
+      content.innerHTML = `<iframe src="${safe}" class="w-full h-[70vh] rounded-xl shadow-lg" frameborder="0"></iframe>`;
+    } else {
+      content.innerHTML = `<p class='text-center text-lg'>Cannot preview this file type.</p>`;
+    }
+
+    // Accessibility & focus management
+    modal.setAttribute('aria-hidden', 'false');
+    modal.classList.remove('hidden');
+    // add show class to animate modal content
+    setTimeout(() => modal.classList.add('show'), 10);
+
+    // Save last focused element and move focus to close button
+    window._lastFocusedElementBeforeModal = document.activeElement;
+    const closeBtn = modal.querySelector('button');
+    if (closeBtn) closeBtn.focus();
+  } catch (err) {
+    console.error('[certificates] openModal error:', err);
+    // show user-friendly message
+    content.innerHTML = `<p class='text-center text-lg'>Unable to preview this certificate.</p>`;
+    modal.classList.remove('hidden');
+    modal.classList.add('show');
+  }
+}
+function closeModal() {
+  const modal = document.getElementById('certificateModal');
+  if (!modal) return;
+  modal.classList.remove('show');
+  // wait for transition then hide
+  setTimeout(() => {
+    modal.classList.add('hidden');
+    modal.setAttribute('aria-hidden', 'true');
+    // restore focus
+    try { if (window._lastFocusedElementBeforeModal) window._lastFocusedElementBeforeModal.focus(); } catch(e){}
+    const content = document.getElementById('certificateContent'); if (content) content.innerHTML = '';
+  }, 240);
+}
+// Attach click handlers to certificate links immediately (safe when script is at end of body)
+(function initCertificateHandlers(){
+  const grid = document.querySelector('.grid');
+  if (grid) {
+    // Delegate clicks to anchors (robust for clicks on inner elements)
+    grid.addEventListener('click', function(e) {
+      const anchor = e.target.closest('a.certificate-card, a[href]');
+      if (!anchor) return;
+      // Prevent the browser from following the link
+      e.preventDefault();
+
+      // Prefer explicit href, fall back to data-src or background-image
+      let url = anchor.getAttribute('href') || anchor.dataset.src || '';
+      if (typeof url === 'string') url = url.trim();
+      if (!url) {
+        // fallback: try to extract url(...) from a child element's inline style
+        const imgDiv = anchor.querySelector('[style*="background-image"]');
+        if (imgDiv) {
+          const m = imgDiv.getAttribute('style').match(/url\((?:"|')?(.*?)(?:"|')?\)/);
+          if (m && m[1]) url = m[1];
+        }
+      }
+
+      // Debugging info
+      console.log('[certificates] card clicked:', anchor, 'resolved url:', url);
+
+      if (!url) {
+        // nothing we can preview
+        console.warn('No preview URL found for certificate card', anchor);
+        return;
+      }
+
+      // Normalize URL (trim only here; openModal will encode)
+      const resolved = String(url || '').trim();
+      openModal(resolved);
+    }, false);
+  }
+
+  const modal = document.getElementById('certificateModal');
+  if (modal) {
+    // close when clicking outside content
+    modal.addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+    // allow Esc to close modal
+    document.addEventListener('keydown', function(ev){
+      if (ev.key === 'Escape') {
+        if (!modal.classList.contains('hidden')) closeModal();
+      }
+    });
+  }
+})();
+</script>
+
+<script>
+  // Dark Mode Toggle (same logic as main page)
+  function toggleDarkMode() {
+    document.documentElement.classList.toggle('dark');
+    const isDark = document.documentElement.classList.contains('dark');
+    localStorage.setItem('darkMode', isDark);
+    const icon = isDark ? 'light_mode' : 'dark_mode';
+    const el = document.getElementById('darkModeIcon');
+    if (el) el.textContent = icon;
+    const elMobile = document.getElementById('darkModeIconMobile');
+    if (elMobile) elMobile.textContent = icon;
+  }
+
+  // Load dark mode preference
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.documentElement.classList.add('dark');
+  }
+  // Set initial icon state
+  (function(){
+    const isDarkMode = document.documentElement.classList.contains('dark');
+    const initialIcon = isDarkMode ? 'light_mode' : 'dark_mode';
+    const el = document.getElementById('darkModeIcon');
+    if (el) el.textContent = initialIcon;
+    const elMobile = document.getElementById('darkModeIconMobile');
+    if (elMobile) elMobile.textContent = initialIcon;
+  })();
+
+  // Mobile Menu Toggle
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    if (menu) menu.classList.toggle('hidden');
+  }
+
+  // Scroll Reveal Animation
+  function revealOnScroll() {
+    const reveals = document.querySelectorAll('.scroll-reveal');
+    reveals.forEach(element => {
+      const windowHeight = window.innerHeight;
+      const elementTop = element.getBoundingClientRect().top;
+      const elementVisible = 150;
+      if (elementTop < windowHeight - elementVisible) {
+        element.classList.add('revealed');
+      }
+    });
+  }
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+  revealOnScroll(); // Initial check
+
+  // Back to Top Button visibility
+  window.addEventListener('scroll', function() {
+    const backToTop = document.querySelector('.back-to-top');
+    if (!backToTop) return;
+    if (window.pageYOffset > 300) {
+      backToTop.classList.add('show');
+    } else {
+      backToTop.classList.remove('show');
+    }
+  });
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Close mobile menu when clicking a link inside it
+  document.querySelectorAll('#mobileMenu a').forEach(link => {
+    link.addEventListener('click', () => {
+      const menu = document.getElementById('mobileMenu');
+      if (menu) menu.classList.add('hidden');
+    });
+  });
+</script>
+
+</body></html>
+

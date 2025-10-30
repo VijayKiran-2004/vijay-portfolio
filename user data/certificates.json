@@ -1,0 +1,45 @@
+
+[
+  {
+    "title": "Google UX Design Professional",
+    "issuer": "Google via Coursera",
+    "description": "7-course comprehensive UX design program covering user research, wireframing, prototyping, and usability testing.",
+    "link": "user data/Google UX professional certificate Coursera.pdf",
+    "icon": "school"
+  },
+  {
+    "title": "IBM UX Design",
+    "issuer": "IBM",
+    "description": "Professional certificate in UX design methodologies, user-centered design principles, and design thinking.",
+    "link": "user data/IBM UX design certificate.png",
+    "icon": "verified"
+  },
+  {
+    "title": "Georgia Tech UX",
+    "issuer": "Georgia Institute of Technology",
+    "description": "Advanced UX design certification from Georgia Tech, focusing on human-computer interaction and user experience.",
+    "link": "user data/Georgia Tech UX certificate.jpg",
+    "icon": "military_tech"
+  },
+  {
+    "title": "Figma Design",
+    "issuer": "Udemy",
+    "description": "Mastery in Figma covering design systems, prototyping, collaboration features, and advanced techniques.",
+    "link": "user data/Udemy Figma certificate.pdf",
+    "icon": "design_services"
+  },
+  {
+    "title": "AI for UX Research",
+    "issuer": "Udemy",
+    "description": "Leveraging artificial intelligence and machine learning tools for enhanced user experience research and insights.",
+    "link": "user data/Udemy Ai for UX research.pdf",
+    "icon": "psychology"
+  },
+  {
+    "title": "View All Certificates",
+    "issuer": "13 certificates available",
+    "description": "Click here to view all certificates including individual Google UX Design course certificates and more.",
+    "link": "certificates screen.html",
+    "icon": "folder_open"
+  }
+]
