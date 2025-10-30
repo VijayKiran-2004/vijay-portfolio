@@ -1,3 +1,36 @@
+name: Deploy static site to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare public directory
+        run: |
+          rm -rf public
+          mkdir -p public
+          # copy site files to public, exclude git and workflow files
+          rsync -a --exclude='.git' --exclude='.github' --exclude='node_modules' ./ public/
+        shell: bash
+
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: public
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
 name: Deploy to GitHub Pages
 
 on:
