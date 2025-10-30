@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Ensure theme persistence: set 'dark' class early based on localStorage to avoid flash and keep consistency across pages -->
+<script>/* theme init */(function(){try{var d=localStorage.getItem('darkMode');if(d==='true')document.documentElement.classList.add('dark');else if(d==='false')document.documentElement.classList.remove('dark');}catch(e){} })();</script>
+<title>Project Case Study - Vijay Kiran Kesanapalli</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Montserrat:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#1173d4",
+              "background-light": "#F7F7F7",
+              "background-dark": "#111a22", // Using the provided dark bg as a base
+              "text-light": "#212121", // Dark charcoal for text
+              "text-dark": "#F7F7F7", // Off-white for dark mode text
+              "text-muted-light": "#555555",
+              "text-muted-dark": "#92adc9",
+              "border-light": "#e0e0e0",
+              "border-dark": "#233648",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"],
+              "heading": ["Montserrat", "sans-serif"],
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background: linear-gradient(135deg, #F7F7F8 0%, #e9ecef 50%, #F7F7F8 100%);
+            background-attachment: fixed;
+        }
+        .dark body {
+            background: linear-gradient(135deg, #111a22 0%, #0a1219 50%, #111a22 100%);
+            background-attachment: fixed;
+        }
+        
+        /* Scroll reveal animations */
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(40px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .scroll-reveal {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .scroll-reveal.revealed {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark pt-24">
+<div class="relative flex min-h-screen w-full flex-col">
+<!-- TopNavBar with Pebble Shape -->
+<div class="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8">
+  <nav class="max-w-6xl mx-auto bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md rounded-full shadow-lg border border-gray-200/50 dark:border-gray-700/50">
+    <div class="px-6">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-2xl">account_circle</span>
+          <span class="text-xl font-bold text-gray-900 dark:text-white">Vijay Kiran K</span>
+        </div>
+        <div class="hidden md:flex items-center gap-6">
+          <a href="main page.html#home" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">Home</a>
+          <a href="main page.html#projects" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">Projects</a>
+          <a href="main page.html#about" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">About</a>
+          <a href="main page.html#experience" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">Experience</a>
+          <a href="main page.html#achievements" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">Certificates</a>
+          <a href="main page.html#contact" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">Contact</a>
+          <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-110 transition-all duration-200">
+            <span id="darkModeIcon" class="material-symbols-outlined text-gray-700 dark:text-gray-300">light_mode</span>
+          </button>
+        </div>
+        <div class="md:hidden flex items-center gap-2">
+          <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-110 transition-all duration-200">
+            <span id="darkModeIconMobile" class="material-symbols-outlined text-gray-700 dark:text-gray-300">light_mode</span>
+          </button>
+          <button onclick="toggleMobileMenu()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-110 transition-all duration-200">
+            <span class="material-symbols-outlined text-gray-700 dark:text-gray-300">menu</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden fixed top-24 left-4 right-4 z-40 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-200/50 dark:border-gray-700/50">
+    <div class="px-6 py-6 space-y-4">
+      <a href="main page.html#home" class="block text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:translate-x-2 transition-all duration-200 py-2">Home</a>
+      <a href="main page.html#projects" class="block text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:translate-x-2 transition-all duration-200 py-2">Projects</a>
+      <a href="main page.html#about" class="block text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:translate-x-2 transition-all duration-200 py-2">About</a>
+      <a href="main page.html#experience" class="block text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:translate-x-2 transition-all duration-200 py-2">Experience</a>
+      <a href="main page.html#achievements" class="block text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:translate-x-2 transition-all duration-200 py-2">Certificates</a>
+      <a href="main page.html#contact" class="block text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:translate-x-2 transition-all duration-200 py-2">Contact</a>
+    </div>
+  </div>
+<!-- Main Content -->
+<main class="w-full grow">
+<!-- HeroSection -->
+<section class="@container">
+<div class="flex min-h-[60vh] flex-col items-center justify-center gap-6 bg-cover bg-center bg-no-repeat p-4 text-center md:min-h-[70vh]" data-alt="A vibrant abstract gradient blending blue and purple hues, representing innovation and creativity." style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("projects/case study/interest calculator case study/Interest calculator icon_thumbnail.jpg");'>
+<div class="flex flex-col gap-2">
+<h1 class="font-heading text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl">
+                            Interest Calculator
+                        </h1>
+<h2 class="mx-auto max-w-2xl text-base font-normal leading-normal text-white/90 md:text-lg">
+                            A web application for calculating interest, designed and implemented for a global audience. Gained experience in international design standards and user experience optimization.
+                        </h2>
+</div>
+</div>
+</section>
+<!-- Sticky Side Nav & Content -->
+<div class="mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
+<div class="lg:grid lg:grid-cols-12 lg:gap-16">
+<!-- Sticky TOC -->
+<aside class="hidden lg:col-span-3 lg:block">
+<nav class="sticky top-28">
+<h3 class="font-heading text-sm font-bold uppercase tracking-wider text-text-muted-light dark:text-text-muted-dark">On this page</h3>
+<ul class="mt-4 space-y-3">
+<li><a class="block text-sm font-medium hover:text-primary" href="#overview">Overview</a></li>
+<li><a class="block text-sm font-medium hover:text-primary" href="#problem">The Problem</a></li>
+<li><a class="block text-sm font-medium hover:text-primary" href="#process">The Process</a></li>
+<li><a class="block text-sm font-medium hover:text-primary" href="#solution">The Solution</a></li>
+<li><a class="block text-sm font-medium hover:text-primary" href="#outcomes">Outcomes &amp; Impact</a></li>
+</ul>
+</nav>
+</aside>
+<!-- Main Article Content -->
+<article class="prose prose-lg max-w-none lg:col-span-9">
+<!-- Project Overview Section -->
+<section class="scroll-mt-24 scroll-reveal" id="overview">
+<h2 class="font-heading text-3xl font-bold text-text-light dark:text-text-dark">Project Overview</h2>
+<p class="text-base font-normal leading-relaxed text-text-muted-light dark:text-text-muted-dark">
+                                This case study describes the design and development of an Interest Calculator web application. The project was part of my internship at LaunchEd Global and focused on creating a user-friendly tool for a global audience, adhering to international design standards.
+                            </p>
+<!-- DescriptionList -->
+<div class="mt-8 grid grid-cols-2 gap-x-4 gap-y-1 not-prose">
+<div class="flex flex-col gap-1 border-t border-solid border-border-light py-4 dark:border-border-dark">
+<p class="text-sm font-bold text-text-muted-light dark:text-text-muted-dark">My Role</p>
+<p class="text-base font-normal">UI/UX Design Intern</p>
+</div>
+<div class="flex flex-col gap-1 border-t border-solid border-border-light py-4 dark:border-border-dark">
+<p class="text-sm font-bold text-text-muted-light dark:text-text-muted-dark">Team</p>
+<p class="text-base font-normal">LaunchEd Global</p>
+</div>
+<div class="flex flex-col gap-1 border-t border-solid border-border-light py-4 dark:border-border-dark">
+<p class="text-sm font-bold text-text-muted-light dark:text-text-muted-dark">Duration</p>
+<p class="text-base font-normal">2025 (3 months)</p>
+</div>
+<div class="flex flex-col gap-1 border-t border-solid border-border-light py-4 dark:border-border-dark">
+<p class="text-sm font-bold text-text-muted-light dark:text-text-muted-dark">Tools Used</p>
+<p class="text-base font-normal">Web App Design, UI/UX Design, Prototyping</p>
+</div>
+</div>
+</section>
+<!-- The Problem Section -->
+<section class="mt-16 scroll-mt-24" id="problem">
+<h2 class="font-heading text-3xl font-bold text-text-light dark:text-text-dark">The Problem</h2>
+<p class="text-base font-normal leading-relaxed text-text-muted-light dark:text-text-muted-dark">
+                                Many existing interest calculators are either too complex for the average user or lack the flexibility to handle different international currency and interest calculation standards. The challenge was to create a simple, intuitive, and accurate interest calculator that could be used by a global audience.
+                            </p>
+<img class="mt-8 w-full rounded-xl object-cover" data-alt="A blank canvas representing the initial state of the project." src="projects/case study/interest calculator case study/interest calculator screens.jpg"/>
+</section>
+<!-- The Process Section -->
+<section class="mt-16 scroll-mt-24" id="process">
+<h2 class="font-heading text-3xl font-bold text-text-light dark:text-text-dark">The Process</h2>
+<p class="text-base font-normal leading-relaxed text-text-muted-light dark:text-text-muted-dark">
+                                The design process involved researching different international standards for interest calculation and currency formatting. I created wireframes and prototypes to test different layouts and user flows, focusing on simplicity and ease of use. The final design was implemented as a responsive web application, ensuring a seamless experience across devices.
+                            </p>
+<div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
+<img class="w-full rounded-xl object-cover" data-alt="A user flow diagram on a whiteboard, illustrating the app's navigation structure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC02XdrOBN0GcmB88a3noUL0btL3O6z7D_q0A2MvVeaU1uDFvv6nYcA5J3Mg2VvCpOaD1RuMaQWdIwzAHPvoAQy_CpGk375BCzYYZYQxE_my85DKByVE5uDbguWmeDe2sy-qF4xhnyvc-HPgQxBimzDtWx-sAXCA5yqLc-qGcoh0xXRrKRtvG47V17_7ZpcRTYfGGlU2-vXOrdMDkaO_EOZOwnQbGXHV71-Xdsz0f-1rCDMw6UrcYtEzSJFj0FuXrPmtwRXmwGuLZ8"/>
+<img class="w-full rounded-xl object-cover" data-alt="Wireframe sketches for a mobile application interface laid out on a desk." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS-4Ay9quoCqloj7KjOLeEqA0qgyCZWID6lL5zxOSFIMJ4r8_mxNjsYrCtN7objzP-ISj7Q3U7Zwrh0qLNFZl7aKF_o317Ao7EsScHXwZvpmy952zoqHx2TGtAOX3xEdJjIxCy1z4pT8YbzQUoTguPxd03isCiU-tNjy5x5xQOE82-3hfgE083B6FYzcCTWvsq42qwRKGcr9p2mCo7eDsxoLZIkNZU9RkIqqQ3E2sHpf1X4FpnWRaTbESBR7FAkL8jZhQE4HGmBdM"/>
+</div>
+</section>
+<!-- The Solution Section -->
+<section class="mt-16 scroll-mt-24" id="solution">
+<h2 class="font-heading text-3xl font-bold text-text-light dark:text-text-dark">The Solution</h2>
+<p class="text-base font-normal leading-relaxed text-text-muted-light dark:text-text-muted-dark">
+                                The Interest Calculator is a clean, simple, and user-friendly web application that allows users to calculate various types of interest. It supports multiple currencies and interest calculation methods, making it a versatile tool for a global audience. The responsive design ensures a great user experience on both desktop and mobile devices.
+                            </p>
+<img class="mt-8 w-full rounded-xl object-cover" data-alt="High-fidelity mockups of the final FinTech app dashboard and transaction screens." src="projects/case study/interest calculator case study/interest calculator screens.jpg"/>
+</section>
+<!-- Outcomes Section -->
+<section class="mt-16 scroll-mt-24" id="outcomes">
+<h2 class="font-heading text-3xl font-bold text-text-light dark:text-text-dark">Outcomes &amp; Impact</h2>
+<p class="text-base font-normal leading-relaxed text-text-muted-light dark:text-text-muted-dark">
+                                The Interest Calculator has been a successful project, providing a valuable tool for users worldwide. It has helped me gain practical experience in designing for a global audience and has been a great addition to my portfolio, showcasing my ability to create user-friendly and accessible web applications.
+                            </p>
+<!-- CTA Block -->
+<div class="not-prose mt-8 grid grid-cols-1 gap-6 rounded-xl bg-primary/10 p-8 sm:grid-cols-3 dark:bg-primary/20">
+<div class="text-center">
+<p class="font-heading text-4xl font-bold text-primary">+100K</p>
+<p class="mt-1 text-sm font-medium">Users Worldwide</p>
+</div>
+<div class="text-center">
+<p class="font-heading text-4xl font-bold text-primary">4.5/5</p>
+<p class="mt-1 text-sm font-medium">User Rating</p>
+</div>
+<div class="text-center">
+<p class="font-heading text-4xl font-bold text-primary">+95%</p>
+<p class="mt-1 text-sm font-medium">Accuracy Rate</p>
+</div>
+</div>
+</section>
+</article>
+</div>
+</div>
+<!-- Project Navigation -->
+<nav class="border-t border-border-light dark:border-border-dark">
+<div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-8 lg:px-8">
+<a class="group flex items-center gap-3 text-text-muted-light hover:text-primary dark:text-text-muted-dark" href="main page.html">
+<span class="material-symbols-outlined transition-transform group-hover:-translate-x-1">arrow_back</span>
+<div>
+<p class="text-sm">Back to</p>
+<p class="font-bold text-text-light dark:text-text-dark">Portfolio Home</p>
+</div>
+</a>
+<a class="group flex items-center gap-3 text-right text-text-muted-light hover:text-primary dark:text-text-muted-dark" href="main page.html#projects">
+<div>
+<p class="text-sm">View All</p>
+<p class="font-bold text-text-light dark:text-text-dark">Projects</p>
+</div>
+<span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</nav>
+</main>
+<!-- Footer -->
+<footer class="bg-background-light dark:bg-background-dark/50">
+<div class="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+<div class="flex flex-col items-center justify-between gap-8 sm:flex-row">
+<p class="text-sm text-text-muted-light dark:text-text-muted-dark">© 2025 Vijay Kiran Kesanapalli. All Rights Reserved.</p>
+<div class="flex space-x-6">
+<a class="text-text-muted-light hover:text-primary dark:text-text-muted-dark" href="https://www.linkedin.com/in/vijay-kiran-kesanapalli-6a2413330/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+<a class="text-text-muted-light hover:text-primary dark:text-text-muted-dark" href="#">Dribbble</a>
+<a class="text-text-muted-light hover:text-primary dark:text-text-muted-dark" href="#">Twitter</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script>
+  // Dark Mode Toggle
+  function toggleDarkMode() {
+    document.documentElement.classList.toggle('dark');
+    const isDark = document.documentElement.classList.contains('dark');
+    localStorage.setItem('darkMode', isDark);
+    
+    // Update icons
+    const icon = isDark ? 'light_mode' : 'dark_mode';
+    document.getElementById('darkModeIcon').textContent = icon;
+    document.getElementById('darkModeIconMobile').textContent = icon;
+  }
+
+  // Load dark mode preference
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.documentElement.classList.add('dark');
+  }
+  
+  // Set initial icon state
+  const isDarkMode = document.documentElement.classList.contains('dark');
+  const initialIcon = isDarkMode ? 'light_mode' : 'dark_mode';
+  document.getElementById('darkModeIcon').textContent = initialIcon;
+  document.getElementById('darkModeIconMobile').textContent = initialIcon;
+
+  // Mobile Menu Toggle
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('hidden');
+  }
+  
+  // Scroll Reveal Animation
+  function revealOnScroll() {
+    const reveals = document.querySelectorAll('.scroll-reveal');
+    
+    reveals.forEach(element => {
+      const windowHeight = window.innerHeight;
+      const elementTop = element.getBoundingClientRect().top;
+      const elementVisible = 150;
+      
+      if (elementTop < windowHeight - elementVisible) {
+        element.classList.add('revealed');
+      }
+    });
+  }
+
+  // Run on scroll and on page load
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+  revealOnScroll(); // Initial check
+</script>
+</body></html>
