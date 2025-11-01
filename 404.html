@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Page Not Found - Vijay Kiran Kesanapalli</title>
+    <meta name="description" content="404 - Page not found"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1173d4",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+      body {
+        background: linear-gradient(135deg, #f6f7f8 0%, #e9ecef 50%, #f6f7f8 100%);
+        background-attachment: fixed;
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+</head>
+<body class="flex min-h-screen items-center justify-center px-4">
+    <div class="text-center">
+        <div class="mb-8">
+            <span class="material-symbols-outlined text-primary" style="font-size: 120px;">error_outline</span>
+        </div>
+        <h1 class="mb-4 text-6xl font-bold text-gray-900">404</h1>
+        <h2 class="mb-6 text-2xl font-semibold text-gray-700">Page Not Found</h2>
+        <p class="mb-8 text-lg text-gray-600">
+            Sorry, the page you're looking for doesn't exist or has been moved.
+        </p>
+        <div class="flex flex-col gap-4 sm:flex-row sm:justify-center">
+            <a href="main page.html" class="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-base font-semibold text-white transition-all hover:bg-primary/90 hover:scale-105">
+                <span class="material-symbols-outlined">home</span>
+                Go to Homepage
+            </a>
+            <button onclick="window.history.back()" class="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-primary px-6 py-3 text-base font-semibold text-primary transition-all hover:bg-primary/10 hover:scale-105">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Go Back
+            </button>
+        </div>
+        <div class="mt-12">
+            <p class="text-sm text-gray-500">
+                Or explore these sections:
+            </p>
+            <div class="mt-4 flex flex-wrap justify-center gap-4">
+                <a href="main page.html#projects" class="text-primary hover:underline">Projects</a>
+                <a href="main page.html#about" class="text-primary hover:underline">About</a>
+                <a href="certificates screen.html" class="text-primary hover:underline">Certificates</a>
+                <a href="main page.html#contact" class="text-primary hover:underline">Contact</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
