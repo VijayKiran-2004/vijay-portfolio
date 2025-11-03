@@ -1,1 +1,118 @@
-... (content of the file not shown) ...
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vijay Kiran Kesanapalli — Portfolio</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+      
+      .container {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        text-align: center;
+        max-width: 600px;
+        width: 100%;
+      }
+      
+      .profile-image {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid #667eea;
+        margin-bottom: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+      
+      h1 {
+        color: #333;
+        margin-bottom: 10px;
+        font-size: 2.5em;
+      }
+      
+      .subtitle {
+        color: #666;
+        font-size: 1.2em;
+        margin-bottom: 30px;
+      }
+      
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        margin-top: 30px;
+      }
+      
+      .nav-links a {
+        background: #667eea;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+      
+      .nav-links a:hover {
+        background: #764ba2;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      
+      @media (max-width: 600px) {
+        .container {
+          padding: 30px 20px;
+        }
+        
+        h1 {
+          font-size: 2em;
+        }
+        
+        .profile-image {
+          width: 150px;
+          height: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img src="user data/ALL jpg's/Vijay_pic.jpg" alt="Vijay Kiran Kesanapalli" class="profile-image" onerror="this.style.display='none'; document.getElementById('error-msg').style.display='block';" />
+      <div id="error-msg" style="display:none; color: #d32f2f; margin-bottom: 20px;">Image not found. Please check the file path.</div>
+      
+      <h1>Vijay Kiran Kesanapalli</h1>
+      <p class="subtitle">UX Designer & Developer</p>
+      
+      <p style="color: #666; line-height: 1.6; margin: 20px 0;">
+        Welcome to my portfolio! Explore my work, projects, and certifications.
+      </p>
+      
+      <div class="nav-links">
+        <a href="certificates screen.html">Certificates</a>
+        <a href="projects/index.html">Projects</a>
+        <a href="alertraa-case-study.html">Alertraa</a>
+        <a href="ego-bus-case-study.html">EGO Bus</a>
+        <a href="vriksha-ai-case-study.html">Vriksha AI</a>
+        <a href="interest-calculator-case-study.html">Interest Calculator</a>
+      </div>
+    </div>
+  </body>
+</html>
