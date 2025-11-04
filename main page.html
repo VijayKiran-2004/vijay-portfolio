@@ -1,118 +1,643 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Vijay Kiran Kesanapalli — Portfolio</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Ensure theme persistence: set 'dark' class early based on localStorage to avoid flash and keep consistency across pages -->
+<script>/* theme init */(function(){try{var d=localStorage.getItem('darkMode');if(d==='true')document.documentElement.classList.add('dark');else if(d==='false')document.documentElement.classList.remove('dark');}catch(e){} })();</script>
+<title>Vijay Kiran Kesanapalli - UI/UX Designer Portfolio</title>
+<meta name="description" content="UI/UX Designer portfolio showcasing innovative mobile app and web design projects including Alertraa, Vriksha AI, eGo Bus, and Interest Calculator. Google, IBM, Oracle, Georgia Tech, and ServiceNow Certified."/>
+<meta name="keywords" content="UI/UX Designer, Mobile App Design, Web Design, Portfolio, Vijay Kiran Kesanapalli, Product Design"/>
+<meta name="author" content="Vijay Kiran Kesanapalli"/>
+<meta property="og:title" content="Vijay Kiran Kesanapalli - UI/UX Designer Portfolio"/>
+<meta property="og:description" content="UI/UX Designer specializing in mobile app and web experiences. Certified by Google, IBM, Oracle, Georgia Tech, and ServiceNow."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://vijaykiran-2004.github.io/vijay-portfolio/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Vijay Kiran Kesanapalli - UI/UX Designer"/>
+<meta name="twitter:description" content="UI/UX Designer portfolio showcasing innovative mobile and web design projects."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1173d4",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
       }
-      
+      html {
+        scroll-behavior: smooth;
+      }
       body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
+        background: linear-gradient(135deg, #f6f7f8 0%, #e9ecef 50%, #f6f7f8 100%);
+        background-attachment: fixed;
+      }
+      .dark body {
+        background: linear-gradient(135deg, #101922 0%, #0a1219 50%, #101922 100%);
+        background-attachment: fixed;
+      }
+      .back-to-top {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
+        z-index: 40;
+      }
+      .back-to-top.show {
+        opacity: 1;
+        visibility: visible;
       }
       
-      .container {
-        background: white;
-        border-radius: 20px;
-        padding: 40px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        text-align: center;
-        max-width: 600px;
-        width: 100%;
-      }
-      
-      .profile-image {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 5px solid #667eea;
-        margin-bottom: 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      }
-      
-      h1 {
-        color: #333;
-        margin-bottom: 10px;
-        font-size: 2.5em;
-      }
-      
-      .subtitle {
-        color: #666;
-        font-size: 1.2em;
-        margin-bottom: 30px;
-      }
-      
-      .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 15px;
-        justify-content: center;
-        margin-top: 30px;
-      }
-      
-      .nav-links a {
-        background: #667eea;
-        color: white;
-        padding: 12px 25px;
-        border-radius: 8px;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        font-weight: 500;
-      }
-      
-      .nav-links a:hover {
-        background: #764ba2;
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      }
-      
-      @media (max-width: 600px) {
-        .container {
-          padding: 30px 20px;
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
         }
-        
-        h1 {
-          font-size: 2em;
-        }
-        
-        .profile-image {
-          width: 150px;
-          height: 150px;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
       }
+      
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      
+      /* Scroll reveal classes */
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      
+      .scroll-reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      .animate-fade-in {
+        animation: fadeIn 0.8s ease-out forwards;
+      }
+      
+      .animate-fade-in-delay {
+        animation: fadeIn 0.8s ease-out 0.2s forwards;
+        opacity: 0;
+      }
+      
+      .animate-slide-up {
+        animation: slideUp 0.8s ease-out forwards;
+      }
+      
+      .animate-slide-in-left {
+        animation: slideInLeft 0.8s ease-out forwards;
+      }
+      
+      .animate-slide-in-right {
+        animation: slideInRight 0.8s ease-out forwards;
+      }
+      
+      .animate-scale-in {
+        animation: scaleIn 0.6s ease-out forwards;
+      }
+      
+      /* Stagger animations for multiple elements */
+      .stagger-animation > * {
+        opacity: 0;
+        animation: slideUp 0.6s ease-out forwards;
+      }
+      
+      .stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+      .stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
+      .stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
+      .stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
+      .stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
+      .stagger-animation > *:nth-child(6) { animation-delay: 0.6s; }
     </style>
-  </head>
-  <body>
-    <div class="container">
-  <img src="assets/images/vijay_pic.jpg" alt="Vijay Kiran Kesanapalli" class="profile-image" loading="lazy" onerror="this.style.display='none'; document.getElementById('error-msg').style.display='block';" />
-      <div id="error-msg" style="display:none; color: #d32f2f; margin-bottom: 20px;">Image not found. Please check the file path.</div>
-      
-      <h1>Vijay Kiran Kesanapalli</h1>
-      <p class="subtitle">UX Designer & Developer</p>
-      
-      <p style="color: #666; line-height: 1.6; margin: 20px 0;">
-        Welcome to my portfolio! Explore my work, projects, and certifications.
-      </p>
-      
-      <div class="nav-links">
-        <a href="certificates screen.html">Certificates</a>
-        <a href="projects/index.html">Projects</a>
-        <a href="alertraa-case-study.html">Alertraa</a>
-        <a href="ego-bus-case-study.html">EGO Bus</a>
-        <a href="vriksha-ai-case-study.html">Vriksha AI</a>
-        <a href="interest-calculator-case-study.html">Interest Calculator</a>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200 pt-24">
+<div class="relative w-full overflow-x-hidden">
+<!-- Navigation Header with Pebble Shape -->
+<div class="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8">
+  <nav class="max-w-6xl mx-auto bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md rounded-full shadow-lg border border-gray-200/50 dark:border-gray-700/50">
+    <div class="px-6">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-2xl">account_circle</span>
+          <span class="text-xl font-bold text-gray-900 dark:text-white">Vijay Kiran K</span>
+        </div>
+        <div class="hidden md:flex items-center gap-6">
+          <a href="#home" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">Home</a>
+          <a href="#projects" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">Projects</a>
+          <a href="#about" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">About</a>
+          <a href="#experience" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">Experience</a>
+          <a href="#achievements" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">Certificates</a>
+          <a href="#contact" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">Contact</a>
+          <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-110 transition-all duration-200">
+            <span id="darkModeIcon" class="material-symbols-outlined text-gray-700 dark:text-gray-300">light_mode</span>
+          </button>
+        </div>
+        <div class="md:hidden flex items-center gap-2">
+          <button onclick="toggleDarkMode()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-110 transition-all duration-200">
+            <span id="darkModeIconMobile" class="material-symbols-outlined text-gray-700 dark:text-gray-300">light_mode</span>
+          </button>
+          <button onclick="toggleMobileMenu()" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-110 transition-all duration-200">
+            <span class="material-symbols-outlined text-gray-700 dark:text-gray-300">menu</span>
+          </button>
+        </div>
       </div>
     </div>
-  </body>
-</html>
+  </nav>
+</div>
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden fixed top-24 left-4 right-4 z-40 bg-background-light dark:bg-background-dark rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700">
+    <div class="px-6 py-6 space-y-4">
+      <a href="#home" class="block text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:translate-x-2 transition-all duration-200 py-2">Home</a>
+      <a href="#projects" class="block text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:translate-x-2 transition-all duration-200 py-2">Projects</a>
+      <a href="#about" class="block text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:translate-x-2 transition-all duration-200 py-2">About</a>
+      <a href="#experience" class="block text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:translate-x-2 transition-all duration-200 py-2">Experience</a>
+      <a href="#achievements" class="block text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:translate-x-2 transition-all duration-200 py-2">Certificates</a>
+      <a href="#contact" class="block text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:translate-x-2 transition-all duration-200 py-2">Contact</a>
+    </div>
+  </div>
+<main class="flex h-full grow flex-col">
+<div class="flex flex-1 justify-center py-5">
+<div class="flex max-w-5xl flex-1 flex-col px-4 sm:px-6 lg:px-8">
+<section class="py-16 sm:py-24" id="home">
+<div class="@container">
+<div class="flex flex-col-reverse gap-10 @[864px]:flex-row @[864px]:gap-8">
+<div class="flex flex-col gap-6 text-center @[864px]:w-1/2 @[864px]:justify-center @[864px]:text-left">
+<div class="flex flex-col gap-2">
+<h1 class="text-4xl font-black leading-tight tracking-[-0.033em] text-gray-900 dark:text-white sm:text-5xl animate-fade-in">VIJAY KIRAN KESANAPALLI</h1>
+<h2 class="text-base font-normal leading-normal text-gray-600 dark:text-gray-400 sm:text-lg animate-fade-in-delay">Certified UI/UX Designer | Creating intuitive digital experiences through user-centered design | Google, IBM, Oracle, Georgia Tech, ServiceNow Certified</h2>
+</div>
+<div class="flex flex-col items-center gap-4 sm:flex-row @[864px]:items-start">
+<a class="flex h-12 w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-5 text-base font-bold leading-normal tracking-[0.015em] text-white transition-colors hover:bg-primary/90 sm:w-auto" href="#projects">
+<span class="truncate">View My Work</span>
+</a>
+<a class="flex h-12 w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg border-2 border-primary px-5 text-base font-bold leading-normal tracking-[0.015em] text-primary transition-colors hover:bg-primary/10 sm:w-auto" href="#contact">
+<span class="truncate">Contact Me</span>
+</a>
+</div>
+</div>
+<div class="w-full @[864px]:w-1/2">
+<div class="aspect-square w-full rounded-2xl bg-gradient-to-br from-primary/30 via-primary/15 to-transparent backdrop-blur-sm flex items-center justify-center border border-primary/20 shadow-2xl animate-scale-in">
+<div class="text-center">
+<div class="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-primary/30 shadow-xl">
+<img src="assets/images/vijay_pic.jpg" alt="Vijay Kiran Kesanapalli - UI/UX Designer" class="w-full h-full object-cover" loading="lazy"/>
+</div>
+<p class="text-gray-700 dark:text-gray-300 mt-6 text-base font-medium">UI/UX Designer</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 sm:py-24 scroll-reveal" id="projects">
+<h2 class="px-4 pb-6 pt-5 text-[22px] font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">Featured Projects</h2>
+<div class="grid grid-cols-1 gap-8 scroll-reveal">
+<div class="rounded-xl bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-800/60 dark:to-gray-900/40 backdrop-blur-lg p-6 shadow-lg border border-white/20 dark:border-gray-700/30 @container transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:border-primary/30">
+<div class="flex flex-col items-stretch justify-start gap-4 @xl:flex-row @xl:items-start">
+<div class="w-full shrink-0 basis-1/2 rounded-lg bg-cover bg-center aspect-video overflow-hidden shadow-md" role="img" aria-label="Abstract gradient representing the first project" style='background-image: url("projects/case study/Alertraa/Alertraa logo_thumbnail.jpg");'></div>
+<div class="flex w-full grow flex-col items-stretch justify-center gap-3 py-2">
+<p class="text-lg font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">Alertra - WebApp Design/Dev (2025)</p>
+<p class="text-base font-normal leading-normal text-gray-600 dark:text-gray-400">Currently working as core UI/UX designer and developer for this startup project. Designing and developing complete web application from concept to deployment, focusing on user-centered design principles.</p>
+<div class="flex flex-wrap gap-2">
+<span class="rounded-full bg-gradient-to-r from-primary/30 to-primary/20 backdrop-blur-sm px-3 py-1 text-sm text-primary dark:text-primary border border-primary/20">Figma</span>
+<span class="rounded-full bg-gradient-to-r from-primary/30 to-primary/20 backdrop-blur-sm px-3 py-1 text-sm text-primary dark:text-primary border border-primary/20">UI/UX Design</span>
+<span class="rounded-full bg-gradient-to-r from-primary/30 to-primary/20 backdrop-blur-sm px-3 py-1 text-sm text-primary dark:text-primary border border-primary/20">Web Development</span>
+</div>
+<div class="pt-2">
+<button onclick="window.location.href='alertraa-case-study.html'" class="flex h-10 w-full cursor-pointer items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-primary to-primary/80 px-4 text-sm font-medium leading-normal text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 sm:w-auto">
+<span class="truncate">View Case Study</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-800/60 dark:to-gray-900/40 backdrop-blur-lg p-6 shadow-lg border border-white/20 dark:border-gray-700/30 @container transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:border-primary/30">
+<div class="flex flex-col items-stretch justify-start gap-4 @xl:flex-row @xl:items-start">
+<div class="w-full shrink-0 basis-1/2 rounded-lg bg-cover bg-center aspect-video overflow-hidden shadow-md" role="img" aria-label="Abstract pattern representing the second project" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBtnrxRMjD9OfDhKeprZbuZ7sMMqtA6KfGFP9AgJFh8h1q2ReVvOZ0NaUbwXE0YK7nVrVpo6IP8rJ5kcvym7pxdNYW_TNBCRlDl8vTPS22tfbIb4W3VTZb51-vjnbW5usxW8zqc_dhlJM5AxF0myPosrUl_Ocj96ZMtFlYH-lM5RhnHO4MZCmvuc4E-u1LqiKCDuo497UsRYS6Tea-VVF1HCoLCwyWAU_DO1BbbI0MztBGjVgw8f0M2TVIoZ2Tv7Yj8kiqfsZlsfNI");'></div>
+<div class="flex w-full grow flex-col items-stretch justify-center gap-3 py-2">
+<p class="text-lg font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">Vruksha Ai - App Design (2025)</p>
+<p class="text-base font-normal leading-normal text-gray-600 dark:text-gray-400">AI-driven application design focusing on environmental solutions. Applied Google UX Design principles to create intuitive user experiences for AI-powered features.</p>
+<div class="flex flex-wrap gap-2">
+<span class="rounded-full bg-gradient-to-r from-primary/30 to-primary/20 backdrop-blur-sm px-3 py-1 text-sm text-primary dark:text-primary border border-primary/20">Figma</span>
+<span class="rounded-full bg-gradient-to-r from-primary/30 to-primary/20 backdrop-blur-sm px-3 py-1 text-sm text-primary dark:text-primary border border-primary/20">AI/UX</span>
+<span class="rounded-full bg-gradient-to-r from-primary/30 to-primary/20 backdrop-blur-sm px-3 py-1 text-sm text-primary dark:text-primary border border-primary/20">Mobile Design</span>
+</div>
+<div class="pt-2">
+<button onclick="window.location.href='vriksha-ai-case-study.html'" class="flex h-10 w-full cursor-pointer items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-primary to-primary/80 px-4 text-sm font-medium leading-normal text-white shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 sm:w-auto">
+<span class="truncate">View Case Study</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-white p-4 shadow-sm dark:bg-background-dark/50 @container transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+<div class="flex flex-col items-stretch justify-start gap-4 @xl:flex-row @xl:items-start">
+<div class="w-full shrink-0 basis-1/2 rounded-lg bg-cover bg-center aspect-video overflow-hidden" role="img" aria-label="Abstract texture representing the third project" style='background-image: url("projects/case study/eGo Bus case study/eGo Bus logo_thumbnail.jpg");'></div>
+<div class="flex w-full grow flex-col items-stretch justify-center gap-3 py-2">
+<p class="text-lg font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">E-Go Bus - App Design (2024)</p>
+<p class="text-base font-normal leading-normal text-gray-600 dark:text-gray-400">4-month hackathon project designing a comprehensive public transportation booking app. Focused on seamless user experience, real-time updates, and intuitive navigation for bus travelers.</p>
+<div class="flex flex-wrap gap-2">
+<span class="rounded-full bg-primary/20 px-3 py-1 text-sm text-primary/80 dark:text-primary">Mobile App Design</span>
+<span class="rounded-full bg-primary/20 px-3 py-1 text-sm text-primary/80 dark:text-primary">User Research</span>
+<span class="rounded-full bg-primary/20 px-3 py-1 text-sm text-primary/80 dark:text-primary">Prototyping</span>
+</div>
+<div class="pt-2">
+<button onclick="window.location.href='ego-bus-case-study.html'" class="flex h-10 w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-4 text-sm font-medium leading-normal text-white transition-colors hover:bg-primary/90 sm:w-auto">
+<span class="truncate">View Case Study</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-white p-4 shadow-sm dark:bg-background-dark/50 @container transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+<div class="flex flex-col items-stretch justify-start gap-4 @xl:flex-row @xl:items-start">
+<div class="w-full shrink-0 basis-1/2 rounded-lg bg-cover bg-center aspect-video overflow-hidden" role="img" aria-label="Abstract texture representing the fourth project" style='background-image: url("projects/case study/interest calculator case study/Interest calculator icon_thumbnail.jpg");'></div>
+<div class="flex w-full grow flex-col items-stretch justify-center gap-3 py-2">
+<p class="text-lg font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">Interest Calculator</p>
+<p class="text-base font-normal leading-normal text-gray-600 dark:text-gray-400">A web application for calculating interest, designed and implemented for a global audience. Gained experience in international design standards and user experience optimization.</p>
+<div class="flex flex-wrap gap-2">
+<span class="rounded-full bg-primary/20 px-3 py-1 text-sm text-primary/80 dark:text-primary">Web App Design</span>
+<span class="rounded-full bg-primary/20 px-3 py-1 text-sm text-primary/80 dark:text-primary">UI/UX Design</span>
+<span class="rounded-full bg-primary/20 px-3 py-1 text-sm text-primary/80 dark:text-primary">Prototyping</span>
+</div>
+<div class="pt-2">
+<button onclick="window.location.href='interest-calculator-case-study.html'" class="flex h-10 w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-4 text-sm font-medium leading-normal text-white transition-colors hover:bg-primary/90 sm:w-auto">
+<span class="truncate">View Case Study</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 sm:py-24 scroll-reveal" id="about">
+<div class="grid grid-cols-1 gap-12 md:grid-cols-3">
+<div class="md:col-span-2">
+<h2 class="px-4 pb-6 pt-5 text-[22px] font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">About Me</h2>
+<div class="space-y-4 px-4 text-base leading-relaxed text-gray-600 dark:text-gray-400">
+<p>I am a creative and detail-oriented UI/UX professional with a passion for building intuitive digital experiences. Currently pursuing my B.Tech in Computer Science Engineering from TKR College of Engineering and Technology, Hyderabad (2022-2026), I actively build experience through professional work and diverse projects.</p>
+<p>With certifications from Google, IBM, Oracle University, Georgia Tech, ServiceNow, and Udemy, I bring a strong foundation in user-centered design principles. I thrive in collaborative environments, working on real-world projects from concept to implementation, delivering designs that not only look great but also solve complex user problems.</p>
+<p>Currently working as a core UI/UX designer and developer at a startup (Alertra), I've gained hands-on experience in creating web applications, conducting user research, and building design systems that drive user engagement and achieve business goals.</p>
+</div>
+</div>
+<div>
+<h3 class="px-4 pb-6 pt-5 text-lg font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">Skills</h3>
+<div class="flex flex-wrap gap-2 px-4">
+<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">Empathize</span>
+<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">Define</span>
+<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">Ideate</span>
+<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">Prototype</span>
+<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">UI/UX Design</span>
+<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">User Research</span>
+<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">Wireframing</span>
+<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">Figma</span>
+<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">Vibe Coding</span>
+<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">Design Systems</span>
+<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">Usability Testing</span>
+<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">Video/Photo Editing</span>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 sm:py-24 scroll-reveal" id="experience">
+<h2 class="px-4 pb-8 pt-5 text-[22px] font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">Experience</h2>
+<div class="relative border-l-2 border-primary/30 px-4 pl-8">
+<div class="mb-10 ml-4">
+<div class="absolute -left-[9px] mt-1.5 h-4 w-4 rounded-full border-2 border-primary/30 bg-primary"></div>
+<time class="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-gray-500">2025 - Present (4 months)</time>
+<h3 class="text-lg font-semibold text-gray-900 dark:text-white">Core UI/UX Designer & Developer - Alertra (Startup)</h3>
+<p class="mb-4 text-base font-normal text-gray-600 dark:text-gray-400">Currently working as a core member designing and developing web applications. Creating user-centered designs, conducting user research, and implementing design systems for the startup's products.</p>
+</div>
+<div class="mb-10 ml-4">
+<div class="absolute -left-[9px] mt-1.5 h-4 w-4 rounded-full border-2 border-primary/30 bg-primary"></div>
+<time class="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-gray-500">2025 (3 months)</time>
+<h3 class="text-lg font-semibold text-gray-900 dark:text-white">UI/UX Design Intern - LaunchEd Global</h3>
+<p class="text-base font-normal leading-normal text-gray-600 dark:text-gray-400">Worked on Interest Calculator project, designing and implementing user interfaces for a global web application. Gained experience in international design standards and user experience optimization.</p>
+</div>
+<div class="mb-10 ml-4">
+<div class="absolute -left-[9px] mt-1.5 h-4 w-4 rounded-full border-2 border-primary/30 bg-primary"></div>
+<time class="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-gray-500">2024-2025 (6 months)</time>
+<h3 class="text-lg font-semibold text-gray-900 dark:text-white">UX Designer - Vruksha Ai</h3>
+<p class="text-base font-normal leading-normal text-gray-600 dark:text-gray-400">Completed comprehensive Google UX Design Professional course while working on Vruksha Ai project. Applied user-centered design principles to create intuitive AI-driven solutions.</p>
+</div>
+<div class="ml-4">
+<div class="absolute -left-[9px] mt-1.5 h-4 w-4 rounded-full border-2 border-primary/30 bg-primary"></div>
+<time class="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-gray-500">2024 (4 months)</time>
+<h3 class="text-lg font-semibold text-gray-900 dark:text-white">UX Designer - eGo Bus (Hackathon Project)</h3>
+<p class="text-base font-normal leading-normal text-gray-600 dark:text-gray-400">Designed complete UI/UX for eGo Bus mobile application during a 4-month hackathon. Focused on creating seamless user experiences for public transportation booking and management.</p>
+</div>
+</div>
+</section>
+<section class="py-16 sm:py-24 scroll-reveal" id="achievements">
+<h2 class="px-4 pb-8 pt-5 text-[22px] font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">Certificates &amp; Achievements</h2>
+<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+<a href="user data/Google UX professional certificate Coursera.pdf" target="_blank" class="flex flex-col gap-4 rounded-xl bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-800/60 dark:to-gray-900/40 backdrop-blur-lg p-6 shadow-lg border border-white/20 dark:border-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:border-primary/30 cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary/30 to-primary/10 text-primary shadow-md">
+<span class="material-symbols-outlined text-3xl"> school </span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Google UX Design Professional</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Google via Coursera</p>
+</div>
+</div>
+<p class="text-base text-gray-600 dark:text-gray-400">7-course comprehensive UX design program covering user research, wireframing, prototyping, and usability testing.</p>
+</a>
+<a href="user data/IBM UX design certificate.png" target="_blank" class="flex flex-col gap-4 rounded-xl bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-800/60 dark:to-gray-900/40 backdrop-blur-lg p-6 shadow-lg border border-white/20 dark:border-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:border-primary/30 cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary/30 to-primary/10 text-primary shadow-md">
+<span class="material-symbols-outlined text-3xl"> verified </span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">IBM UX Design</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">IBM</p>
+</div>
+</div>
+<p class="text-base text-gray-600 dark:text-gray-400">Professional certificate in UX design methodologies, user-centered design principles, and design thinking.</p>
+</a>
+<a href="user data/Georgia Tech UX certificate.jpg" target="_blank" class="flex flex-col gap-4 rounded-xl bg-white p-6 shadow-sm dark:bg-background-dark/50 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-3xl"> military_tech </span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Georgia Tech UX</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Georgia Institute of Technology</p>
+</div>
+</div>
+<p class="text-base text-gray-600 dark:text-gray-400">Advanced UX design certification from Georgia Tech, focusing on human-computer interaction and user experience.</p>
+</a>
+<a href="user data/Udemy Figma certificate.pdf" target="_blank" class="flex flex-col gap-4 rounded-xl bg-white p-6 shadow-sm dark:bg-background-dark/50 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-3xl"> design_services </span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Figma Design</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Udemy</p>
+</div>
+</div>
+<p class="text-base text-gray-600 dark:text-gray-400">Mastery in Figma covering design systems, prototyping, collaboration features, and advanced techniques.</p>
+</a>
+<a href="user data/Udemy Ai for UX research.pdf" target="_blank" class="flex flex-col gap-4 rounded-xl bg-white p-6 shadow-sm dark:bg-background-dark/50 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-3xl"> psychology </span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">AI for UX Research</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Udemy</p>
+</div>
+</div>
+<p class="text-base text-gray-600 dark:text-gray-400">Leveraging artificial intelligence and machine learning tools for enhanced user experience research and insights.</p>
+</a>
+<a href="certificates screen.html" class="flex flex-col gap-4 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 p-6 shadow-sm dark:from-primary/20 dark:to-primary/10 transition-all duration-300 hover:shadow-xl hover:scale-[1.02] cursor-pointer border-2 border-primary/30">
+<div class="flex items-center gap-4">
+<div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary/30 text-primary">
+<span class="material-symbols-outlined text-3xl"> folder_open </span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">View All Certificates</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">13 certificates available</p>
+</div>
+</div>
+<p class="text-base text-gray-600 dark:text-gray-400">Click here to view all certificates including individual Google UX Design course certificates and more.</p>
+</a>
+</div>
+</section>
+<section class="py-16 sm:py-24">
+<div class="rounded-xl bg-primary/20 p-8 text-center dark:bg-primary/30">
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl">Interested in my full background?</h2>
+<p class="mx-auto mt-2 max-w-2xl text-base text-gray-600 dark:text-gray-400">Download my resume to get a detailed look at my qualifications, experience, and the value I can bring to your team.</p>
+<div class="mt-8">
+<a class="inline-flex h-12 cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary px-6 text-base font-bold text-white transition-colors hover:bg-primary/90" href="user data/KESANAPALLI_VIJAY_KIRAN_Resume_Final.docx" download>
+<span class="material-symbols-outlined"> download </span>
+<span class="truncate">Download Resume</span>
+</a>
+</div>
+</div>
+</section>
+<section class="py-16 sm:py-24 scroll-reveal" id="contact">
+<div class="max-w-3xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="text-2xl font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white sm:text-3xl">Let's Work Together</h2>
+<p class="mt-4 text-lg text-gray-600 dark:text-gray-400">Have a project in mind? Feel free to reach out!</p>
+</div>
+<div class="rounded-xl bg-white p-8 shadow-lg dark:bg-background-dark/50">
+<form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+<div>
+<label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Name *</label>
+<input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-colors" placeholder="Your name">
+</div>
+<div>
+<label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email *</label>
+<input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-colors" placeholder="your@email.com">
+</div>
+</div>
+<div>
+<label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Subject *</label>
+<input type="text" id="subject" name="subject" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-colors" placeholder="What's this about?">
+</div>
+<div>
+<label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Message *</label>
+<textarea id="message" name="message" required rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-none" placeholder="Tell me about your project..."></textarea>
+</div>
+<div class="flex items-center justify-between">
+<p class="text-sm text-gray-500 dark:text-gray-400">* Required fields</p>
+<button type="submit" class="flex h-12 cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary px-6 text-base font-bold text-white transition-colors hover:bg-primary/90">
+<span class="material-symbols-outlined">send</span>
+<span class="truncate">Send Message</span>
+</button>
+</div>
+</form>
+<div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700 text-center">
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Or reach out directly:</p>
+<a class="inline-block text-lg font-medium text-primary hover:underline" href="mailto:vijaykiran1008@gmail.com">vijaykiran1008@gmail.com</a>
+<p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Phone: +91 70930 44667</p>
+</div>
+</div>
+</div>
+</section>
+<footer class="py-16 sm:py-24 text-center border-t border-gray-200 dark:border-gray-700">
+<h2 class="text-2xl font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white sm:text-3xl">Connect With Me</h2>
+<p class="mt-4 text-lg text-gray-600 dark:text-gray-400">Let's collaborate and create something amazing together!</p>
+<div class="mt-8 flex justify-center space-x-6">
+<a class="text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors" href="https://www.linkedin.com/in/vijay-kiran-kesanapalli-6a2413330/" title="LinkedIn" target="_blank" rel="noopener noreferrer">
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.206v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 114.128 0c0 1.14-.925 2.065-2.065 2.065zm1.387 8.905H3.95v-8.59h2.774v8.59zM17.638 2H6.362A4.362 4.362 0 002 6.362v11.276A4.362 4.362 0 006.362 22h11.276A4.362 4.362 0 0022 17.638V6.362A4.362 4.362 0 0017.638 2z" fill-rule="evenodd"></path></svg>
+<span class="sr-only">LinkedIn</span>
+</a>
+<a class="text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors" href="#" title="GitHub">
+<svg aria-hidden="true" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.165 6.839 9.489.5.092.682-.218.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.942.359.308.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" fill-rule="evenodd"></path></svg>
+<span class="sr-only">GitHub</span>
+</a>
+<a class="text-gray-500 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors" href="#" title="Portfolio">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+<span class="sr-only">Behance</span>
+</a>
+</div>
+<p class="mt-8 text-sm text-gray-500 dark:text-gray-500">© 2025 Vijay Kiran Kesanapalli. All rights reserved.</p>
+</footer>
+<!-- Back to Top Button -->
+<button onclick="scrollToTop()" class="back-to-top flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-primary text-white shadow-lg transition-all hover:bg-primary/90 hover:scale-110">
+  <span class="material-symbols-outlined">arrow_upward</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+<script>
+  // Dark Mode Toggle
+  function toggleDarkMode() {
+    document.documentElement.classList.toggle('dark');
+    const isDark = document.documentElement.classList.contains('dark');
+    localStorage.setItem('darkMode', isDark);
+    
+    // Update icons - show sun in dark mode, moon in light mode
+    const icon = isDark ? 'light_mode' : 'dark_mode';
+    document.getElementById('darkModeIcon').textContent = icon;
+    document.getElementById('darkModeIconMobile').textContent = icon;
+  }
+
+  // Load dark mode preference
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.documentElement.classList.add('dark');
+  }
+  
+  // Set initial icon state
+  const isDarkMode = document.documentElement.classList.contains('dark');
+  const initialIcon = isDarkMode ? 'light_mode' : 'dark_mode';
+  document.getElementById('darkModeIcon').textContent = initialIcon;
+  document.getElementById('darkModeIconMobile').textContent = initialIcon;
+
+  // Mobile Menu Toggle
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('hidden');
+  }
+
+  // Scroll Reveal Animation
+  function revealOnScroll() {
+    const reveals = document.querySelectorAll('.scroll-reveal');
+    
+    reveals.forEach(element => {
+      const windowHeight = window.innerHeight;
+      const elementTop = element.getBoundingClientRect().top;
+      const elementVisible = 150;
+      
+      if (elementTop < windowHeight - elementVisible) {
+        element.classList.add('revealed');
+      }
+    });
+  }
+
+  // Run on scroll and on page load
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+  revealOnScroll(); // Initial check
+
+  // Back to Top Button
+  window.addEventListener('scroll', function() {
+    const backToTop = document.querySelector('.back-to-top');
+    if (window.pageYOffset > 300) {
+      backToTop.classList.add('show');
+    } else {
+      backToTop.classList.remove('show');
+    }
+  });
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Contact Form Handler
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+    
+    // For now, just show an alert. You can integrate with email service later
+    alert(`Thank you ${name}! Your message has been received.\n\nI'll get back to you at ${email} soon!`);
+    
+    // Reset form
+    document.getElementById('contactForm').reset();
+  }
+
+  // Close mobile menu when clicking a link
+  document.querySelectorAll('#mobileMenu a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.add('hidden');
+    });
+  });
+</script>
+</body></html>
