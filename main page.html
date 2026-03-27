@@ -177,9 +177,236 @@
       .stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
       .stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
       .stagger-animation > *:nth-child(6) { animation-delay: 0.6s; }
+
+      /* Marquee Animation */
+      @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .marquee-container {
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+        padding: 2rem 0;
+      }
+      .marquee-content {
+        display: inline-flex;
+        animation: scroll 40s linear infinite;
+        width: max-content;
+      }
+      .marquee-item {
+        flex: 0 0 auto;
+        width: 400px;
+        margin: 0 1.5rem;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .marquee-item:hover {
+        transform: scale(1.08) translateY(-10px);
+        z-index: 10;
+      }
+      .marquee-item img {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+      }
+      .dark .marquee-item {
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      }
+
+      /* Side Margin Enhancements */
+      .side-social-bar {
+        position: fixed;
+        left: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        z-index: 50;
+      }
+      .side-social-bar a {
+        color: #718096;
+        transition: all 0.3s ease;
+      }
+      .side-social-bar a:hover {
+        color: #1a73e8;
+        transform: scale(1.2) translateX(5px);
+      }
+      .dark .side-social-bar a {
+        color: #a0aec0;
+      }
+      .dark .side-social-bar a:hover {
+        color: #4285f4;
+      }
+
+      .dot-nav {
+        position: fixed;
+        right: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        z-index: 50;
+      }
+      .dot-item {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #cbd5e0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      .dot-item:hover, .dot-item.active {
+        background: #1a73e8;
+        transform: scale(1.4);
+      }
+      .dot-item::after {
+        content: attr(data-label);
+        position: absolute;
+        right: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #1a73e8;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        white-space: nowrap;
+      }
+      .dot-item:hover::after {
+        opacity: 1;
+      }
+      .dark .dot-item {
+        background: #4a5568;
+      }
+      .dark .dot-item:hover, .dark .dot-item.active {
+         background: #4285f4;
+      }
+
+      .bg-glow {
+        position: fixed;
+        width: 600px;
+        height: 600px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(26, 115, 232, 0.08) 0%, rgba(26, 115, 232, 0) 70%);
+        filter: blur(80px);
+        z-index: -10;
+        pointer-events: none;
+        animation: float-glow 20s infinite alternate linear;
+      }
+      @keyframes float-glow {
+        0% { transform: translate(-10%, -10%) scale(1); }
+        100% { transform: translate(10%, 10%) scale(1.1); }
+      }
+      .glow-1 { top: -100px; left: -200px; }
+      .glow-2 { bottom: -100px; right: -200px; background: radial-gradient(circle, rgba(66, 133, 244, 0.08) 0%, rgba(66, 133, 244, 0) 70%); }
+
+      @media (max-width: 1024px) {
+        .side-social-bar, .dot-nav, .custom-cursor { display: none; }
+      }
+
+      /* Custom Cursor */
+      .custom-cursor {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #1a73e8;
+        border-radius: 50%;
+        position: fixed;
+        pointer-events: none;
+        z-index: 9999;
+        transition: transform 0.1s ease-out, width 0.3s, height 0.3s, background-color 0.3s;
+        transform: translate(-50%, -50%);
+      }
+      .custom-cursor-dot {
+        width: 4px;
+        height: 4px;
+        background-color: #1a73e8;
+        border-radius: 50%;
+        position: fixed;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+      }
+      .cursor-hover {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(26, 115, 232, 0.1);
+        border-width: 1px;
+      }
+
+      /* AI Terminal */
+      .terminal-container {
+        background: #1a1b1c;
+        border-radius: 0.75rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        font-family: 'Courier New', Courier, monospace;
+        overflow: hidden;
+        border: 1px solid #333;
+      }
+      .terminal-header {
+        background: #2d2e2f;
+        padding: 0.5rem 1rem;
+        display: flex;
+        gap: 0.5rem;
+      }
+      .dot { width: 10px; height: 10px; border-radius: 50%; }
+      .red { background: #ff5f56; }
+      .yellow { background: #ffbd2e; }
+      .green { background: #27c93f; }
+      .terminal-body {
+        padding: 1.5rem;
+        color: #d1d1d1;
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+      .terminal-line::before {
+        content: "> ";
+        color: #1a73e8;
+      }
+      .typing::after {
+        content: "_";
+        animation: blink 1s step-end infinite;
+      }
+      @keyframes blink { 50% { opacity: 0; } }
+
+      /* Project Tilt Base Styles */
+      .project-card {
+        transform-style: preserve-3d;
+        transition: transform 0.1s ease-out;
+      }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200 pt-24">
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200 pt-24 relative">
+    <!-- Background Glows -->
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <!-- Floating Social Sidebar -->
+    <div class="side-social-bar">
+      <a href="https://www.linkedin.com/in/vijay-kiran-kesanapalli/" target="_blank" title="LinkedIn"><span class="material-symbols-outlined text-2xl">account_box</span></a>
+      <a href="https://github.com/VijayKiran-2004" target="_blank" title="GitHub"><span class="material-symbols-outlined text-2xl">code</span></a>
+      <a href="mailto:kesanapallivijaykiran@gmail.com" title="Email"><span class="material-symbols-outlined text-2xl">mail</span></a>
+    </div>
+
+    <!-- Navigation Dot Menu -->
+    <div class="dot-nav">
+      <a href="#home" class="dot-item active" data-label="Home"></a>
+      <a href="#projects" class="dot-item" data-label="Projects"></a>
+      <a href="#experience" class="dot-item" data-label="Experience"></a>
+      <a href="#certificates" class="dot-item" data-label="Certificates"></a>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-dot"></div>
 <div class="relative w-full overflow-x-hidden">
 <!-- Navigation Header with Pebble Shape -->
 <div class="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8">
@@ -188,7 +415,7 @@
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center gap-2">
           <span class="material-symbols-outlined text-primary text-2xl">account_circle</span>
-          <span class="text-xl font-bold text-gray-900 dark:text-white">Vijay Kiran K</span>
+          <span class="text-xl font-bold text-gray-900 dark:text-white">Vijay Kiran Kesanapalli</span>
         </div>
         <div class="hidden md:flex items-center gap-6">
           <a href="#home" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">Home</a>
@@ -233,15 +460,32 @@
 <div class="flex flex-col gap-6 text-center @[864px]:w-1/2 @[864px]:justify-center @[864px]:text-left">
 <div class="flex flex-col gap-2">
 <h1 class="text-4xl font-black leading-tight tracking-[-0.033em] text-gray-900 dark:text-white sm:text-5xl animate-fade-in">VIJAY KIRAN KESANAPALLI</h1>
-<h2 class="text-base font-normal leading-normal text-gray-600 dark:text-gray-400 sm:text-lg animate-fade-in-delay">Certified UI/UX Designer | Creating intuitive digital experiences through user-centered design | Google, IBM, Oracle, Georgia Tech, ServiceNow Certified</h2>
+<h2 class="text-base font-normal leading-normal text-gray-600 dark:text-gray-400 sm:text-lg animate-fade-in-delay">UI UX AX Designer and AI Engineer | Google, IBM, Oracle, Georgia Tech, ServiceNow Certified</h2>
 </div>
 <div class="flex flex-col items-center gap-4 sm:flex-row @[864px]:items-start">
-<a class="flex h-12 w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-5 text-base font-bold leading-normal tracking-[0.015em] text-white transition-colors hover:bg-primary/90 sm:w-auto" href="#projects">
-<span class="truncate">View My Work</span>
+<a class="flex h-12 w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-primary px-5 text-base font-bold leading-normal tracking-[0.015em] text-white transition-all hover:bg-primary/90 hover:scale-105 active:scale-95 sm:w-auto" href="#projects">
+<span class="truncate">Explore My Work</span>
 </a>
-<a class="flex h-12 w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg border-2 border-primary px-5 text-base font-bold leading-normal tracking-[0.015em] text-primary transition-colors hover:bg-primary/10 sm:w-auto" href="#contact">
-<span class="truncate">Contact Me</span>
+<a class="flex h-12 w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 px-5 text-base font-bold leading-normal tracking-[0.015em] text-gray-900 dark:text-white transition-all hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105 active:scale-95 sm:w-auto" href="Vijay Kiran Kesanapalli Resume.pdf" download>
+  <span class="material-symbols-outlined mr-2">download</span>
+  <span class="truncate">Resume</span>
 </a>
+<a class="flex h-12 w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg border border-gray-300 dark:border-gray-600 bg-transparent px-5 text-base font-bold leading-normal tracking-[0.015em] text-gray-900 dark:text-white transition-all hover:bg-gray-50 dark:hover:bg-gray-800 hover:scale-105 active:scale-95 sm:w-auto" href="#contact">
+<span class="truncate">Contact</span>
+</a>
+</div>
+<!-- AI Terminal Decorative -->
+<div class="mt-8 @[864px]:mt-12 hidden @[864px]:block">
+  <div class="terminal-container w-full max-w-[450px]">
+    <div class="terminal-header">
+      <div class="dot red"></div>
+      <div class="dot yellow"></div>
+      <div class="dot green"></div>
+    </div>
+    <div class="terminal-body" id="aiTerminal">
+      <div class="terminal-line typing">Initializing Portfolio V2.0...</div>
+    </div>
+  </div>
 </div>
 </div>
 <div class="w-full @[864px]:w-1/2">
@@ -259,8 +503,8 @@
 </section>
 <section class="py-16 sm:py-24 scroll-reveal" id="projects">
 <h2 class="px-4 pb-6 pt-5 text-[22px] font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">Featured Projects</h2>
-<div class="grid grid-cols-1 gap-8 scroll-reveal">
-<div class="rounded-xl bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-800/60 dark:to-gray-900/40 backdrop-blur-lg p-6 shadow-lg border border-white/20 dark:border-gray-700/30 @container transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:border-primary/30">
+<div class="grid grid-cols-1 gap-8 sm:grid-cols-2" style="perspective: 1000px;">
+<div class="rounded-xl project-card bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-800/60 dark:to-gray-900/40 backdrop-blur-lg p-6 shadow-lg border border-white/20 dark:border-gray-700/30 @container transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:border-primary/30">
 <div class="flex flex-col items-stretch justify-start gap-4 @xl:flex-row @xl:items-start">
 <div class="w-full shrink-0 basis-1/2 rounded-lg bg-cover bg-center aspect-video overflow-hidden shadow-md" role="img" aria-label="Abstract gradient representing the first project" style='background-image: url("projects/case study/Alertraa/Alertraa logo_thumbnail.jpg");'></div>
 <div class="flex w-full grow flex-col items-stretch justify-center gap-3 py-2">
@@ -279,7 +523,7 @@
 </div>
 </div>
 </div>
-<div class="rounded-xl bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-800/60 dark:to-gray-900/40 backdrop-blur-lg p-6 shadow-lg border border-white/20 dark:border-gray-700/30 @container transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:border-primary/30">
+<div class="rounded-xl project-card bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-800/60 dark:to-gray-900/40 backdrop-blur-lg p-6 shadow-lg border border-white/20 dark:border-gray-700/30 @container transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:border-primary/30">
 <div class="flex flex-col items-stretch justify-start gap-4 @xl:flex-row @xl:items-start">
 <div class="w-full shrink-0 basis-1/2 rounded-lg bg-cover bg-center aspect-video overflow-hidden shadow-md" role="img" aria-label="Abstract pattern representing the second project" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBtnrxRMjD9OfDhKeprZbuZ7sMMqtA6KfGFP9AgJFh8h1q2ReVvOZ0NaUbwXE0YK7nVrVpo6IP8rJ5kcvym7pxdNYW_TNBCRlDl8vTPS22tfbIb4W3VTZb51-vjnbW5usxW8zqc_dhlJM5AxF0myPosrUl_Ocj96ZMtFlYH-lM5RhnHO4MZCmvuc4E-u1LqiKCDuo497UsRYS6Tea-VVF1HCoLCwyWAU_DO1BbbI0MztBGjVgw8f0M2TVIoZ2Tv7Yj8kiqfsZlsfNI");'></div>
 <div class="flex w-full grow flex-col items-stretch justify-center gap-3 py-2">
@@ -298,7 +542,7 @@
 </div>
 </div>
 </div>
-<div class="rounded-xl bg-white p-4 shadow-sm dark:bg-background-dark/50 @container transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+<div class="rounded-xl project-card bg-white p-4 shadow-sm dark:bg-background-dark/50 @container transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
 <div class="flex flex-col items-stretch justify-start gap-4 @xl:flex-row @xl:items-start">
 <div class="w-full shrink-0 basis-1/2 rounded-lg bg-cover bg-center aspect-video overflow-hidden" role="img" aria-label="Abstract texture representing the third project" style='background-image: url("projects/case study/eGo Bus case study/eGo Bus logo_thumbnail.jpg");'></div>
 <div class="flex w-full grow flex-col items-stretch justify-center gap-3 py-2">
@@ -317,7 +561,7 @@
 </div>
 </div>
 </div>
-<div class="rounded-xl bg-white p-4 shadow-sm dark:bg-background-dark/50 @container transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+<div class="rounded-xl project-card bg-white p-4 shadow-sm dark:bg-background-dark/50 @container transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
 <div class="flex flex-col items-stretch justify-start gap-4 @xl:flex-row @xl:items-start">
 <div class="w-full shrink-0 basis-1/2 rounded-lg bg-cover bg-center aspect-video overflow-hidden" role="img" aria-label="Abstract texture representing the fourth project" style='background-image: url("projects/case study/interest calculator case study/Interest calculator icon_thumbnail.jpg");'></div>
 <div class="flex w-full grow flex-col items-stretch justify-center gap-3 py-2">
@@ -349,20 +593,39 @@
 </div>
 </div>
 <div>
-<h3 class="px-4 pb-6 pt-5 text-lg font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">Skills</h3>
-<div class="flex flex-wrap gap-2 px-4">
-<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">Empathize</span>
-<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">Define</span>
-<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">Ideate</span>
-<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">Prototype</span>
-<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">UI/UX Design</span>
-<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">User Research</span>
-<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">Wireframing</span>
-<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">Figma</span>
-<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">Vibe Coding</span>
-<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">Design Systems</span>
-<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">Usability Testing</span>
-<span class="rounded-full bg-gradient-to-r from-primary/20 to-primary/10 backdrop-blur-sm px-3 py-1 text-sm font-medium text-gray-700 dark:text-gray-300 border border-primary/10">Video/Photo Editing</span>
+<h2 class="px-4 pb-6 pt-5 text-[22px] font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">Expertise</h2>
+<div id="skills" class="grid grid-cols-2 gap-4 auto-rows-[120px] px-4">
+  <!-- AI Category -->
+  <div class="col-span-2 row-span-1 rounded-2xl bg-gradient-to-br from-primary to-blue-600 p-6 flex items-center justify-between text-white shadow-xl group hover:scale-[1.02] hover:shadow-primary/20 transition-all duration-300 cursor-pointer">
+    <div class="flex items-center gap-4">
+      <span class="material-symbols-outlined text-4xl group-hover:rotate-12 transition-transform">psychology</span>
+      <div>
+        <h3 class="text-lg font-bold">AI Engineering</h3>
+        <p class="text-xs opacity-90">LLMs, Prompt Eng, AI Workflows</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- UI/UX/AX Category -->
+  <div class="col-span-2 row-span-1 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 flex items-center gap-4 shadow-sm hover:shadow-xl hover:scale-[1.02] hover:border-primary/30 transition-all duration-300 cursor-pointer group">
+    <div class="h-12 w-12 rounded-xl bg-orange-100 dark:bg-orange-900/30 text-orange-600 flex items-center justify-center group-hover:bg-orange-200 dark:group-hover:bg-orange-800/50 transition-colors">
+      <span class="material-symbols-outlined">design_services</span>
+    </div>
+    <div>
+      <h3 class="font-bold">UI UX AX Portfolio</h3>
+      <p class="text-xs text-gray-500">Aesthetic Experience Design</p>
+    </div>
+  </div>
+
+  <!-- Micro Cards -->
+  <div class="rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 flex flex-col justify-center items-center gap-2 shadow-sm hover:shadow-xl hover:scale-[1.05] hover:border-primary/30 transition-all duration-300 cursor-pointer group">
+    <span class="material-symbols-outlined text-primary group-hover:scale-125 transition-transform">draw</span>
+    <span class="text-[10px] font-bold text-center">Figma Professional</span>
+  </div>
+  <div class="rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 flex flex-col justify-center items-center gap-2 shadow-sm hover:shadow-xl hover:scale-[1.05] hover:border-primary/30 transition-all duration-300 cursor-pointer group">
+    <span class="material-symbols-outlined text-primary group-hover:scale-125 transition-transform">code</span>
+    <span class="text-[10px] font-bold text-center">Modern Web Stack</span>
+  </div>
 </div>
 </div>
 </div>
@@ -372,9 +635,15 @@
 <div class="relative border-l-2 border-primary/30 px-4 pl-8">
 <div class="mb-10 ml-4">
 <div class="absolute -left-[9px] mt-1.5 h-4 w-4 rounded-full border-2 border-primary/30 bg-primary"></div>
-<time class="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-gray-500">2025 - Present (4 months)</time>
+<time class="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-gray-500">Jan 2026 - Mar 2026</time>
+<h3 class="text-lg font-semibold text-gray-900 dark:text-white">UI UX Designer - Technokrate (Society Pro)</h3>
+<p class="mb-4 text-base font-normal text-gray-600 dark:text-gray-400">Worked on the "Society Pro" project as a UI UX Designer. Collaborative team project using Figma, HTML, CSS, JavaScript, and AI tools like Stitch and Figma Make to create modern, user-centric interfaces.</p>
+</div>
+<div class="mb-10 ml-4">
+<div class="absolute -left-[9px] mt-1.5 h-4 w-4 rounded-full border-2 border-primary/30 bg-primary"></div>
+<time class="mb-1 text-sm font-normal leading-none text-gray-500 dark:text-gray-500">Sep 2025 - Jan 2026</time>
 <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Core UI/UX Designer & Developer - Alertra (Startup)</h3>
-<p class="mb-4 text-base font-normal text-gray-600 dark:text-gray-400">Currently working as a core member designing and developing web applications. Creating user-centered designs, conducting user research, and implementing design systems for the startup's products.</p>
+<p class="mb-4 text-base font-normal text-gray-600 dark:text-gray-400">Core member designing and developing web applications. Created user-centered designs, conducted user research, and implemented design systems from concept to deployment.</p>
 </div>
 <div class="mb-10 ml-4">
 <div class="absolute -left-[9px] mt-1.5 h-4 w-4 rounded-full border-2 border-primary/30 bg-primary"></div>
@@ -473,12 +742,41 @@
 </a>
 </div>
 </section>
+<!-- Certificate Marquee -->
+<section class="py-12 bg-white/30 dark:bg-gray-900/30 backdrop-blur-sm overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 mb-8">
+    <h3 class="text-center text-xl font-bold text-gray-900 dark:text-white">Certification Highlights</h3>
+  </div>
+  <div class="marquee-container">
+    <div class="marquee-content">
+      <!-- Slide 1 -->
+      <div class="marquee-item"><img src="user data/google-ux-design-professional-certificate-v2.jpeg" alt="Google UX Certificate"></div>
+      <div class="marquee-item"><img src="user data/IBM_UX_design_certificate.jpeg" alt="IBM UX Certificate"></div>
+      <div class="marquee-item"><img src="user data/Georgia Tech UX certificate.jpg" alt="Georgia Tech UX Certificate"></div>
+      <div class="marquee-item"><img src="user data/Udemy_Figma_certificate-1.jpg" alt="Figma Certificate"></div>
+      <div class="marquee-item"><img src="user data/Oracle_Certificate.jpg" alt="Oracle Certificate"></div>
+      <div class="marquee-item"><img src="user data/AWS_certificate.jpg" alt="AWS Certificate"></div>
+      <div class="marquee-item"><img src="user data/Lloyds Banking Job simulation_certificate.jpg" alt="Lloyds Banking Certificate"></div>
+      <div class="marquee-item"><img src="user data/hp-Life certificate.jpg" alt="HP Life Certificate"></div>
+      <!-- Repeat for seamless scroll -->
+      <div class="marquee-item"><img src="user data/google-ux-design-professional-certificate-v2.jpeg" alt="Google UX Certificate"></div>
+      <div class="marquee-item"><img src="user data/IBM_UX_design_certificate.jpeg" alt="IBM UX Certificate"></div>
+      <div class="marquee-item"><img src="user data/Georgia Tech UX certificate.jpg" alt="Georgia Tech UX Certificate"></div>
+      <div class="marquee-item"><img src="user data/Udemy_Figma_certificate-1.jpg" alt="Figma Certificate"></div>
+      <div class="marquee-item"><img src="user data/Oracle_Certificate.jpg" alt="Oracle Certificate"></div>
+      <div class="marquee-item"><img src="user data/AWS_certificate.jpg" alt="AWS Certificate"></div>
+      <div class="marquee-item"><img src="user data/Lloyds Banking Job simulation_certificate.jpg" alt="Lloyds Banking Certificate"></div>
+      <div class="marquee-item"><img src="user data/hp-Life certificate.jpg" alt="HP Life Certificate"></div>
+    </div>
+  </div>
+</section>
+
 <section class="py-16 sm:py-24">
 <div class="rounded-xl bg-primary/20 p-8 text-center dark:bg-primary/30">
 <h2 class="text-2xl font-bold text-gray-900 dark:text-white sm:text-3xl">Interested in my full background?</h2>
 <p class="mx-auto mt-2 max-w-2xl text-base text-gray-600 dark:text-gray-400">Download my resume to get a detailed look at my qualifications, experience, and the value I can bring to your team.</p>
 <div class="mt-8">
-<a class="inline-flex h-12 cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary px-6 text-base font-bold text-white transition-colors hover:bg-primary/90" href="user data/KESANAPALLI_VIJAY_KIRAN_Resume_Final.docx" download>
+<a class="inline-flex h-12 cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary px-6 text-base font-bold text-white transition-colors hover:bg-primary/90" href="Vijay Kiran Kesanapalli Resume.pdf" download>
 <span class="material-symbols-outlined"> download </span>
 <span class="truncate">Download Resume</span>
 </a>
@@ -633,11 +931,106 @@
     document.getElementById('contactForm').reset();
   }
 
-  // Close mobile menu when clicking a link
-  document.querySelectorAll('#mobileMenu a').forEach(link => {
-    link.addEventListener('click', () => {
-      document.getElementById('mobileMenu').classList.add('hidden');
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.add('hidden');
+      });
     });
-  });
+
+    // Dot Menu Scroll Sync
+    const sections = document.querySelectorAll('section[id], #home');
+    const dotItems = document.querySelectorAll('.dot-item');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.pageYOffset >= (sectionTop - 200)) {
+          current = section.getAttribute('id') || 'home';
+        }
+      });
+
+      dotItems.forEach(dot => {
+        dot.classList.remove('active');
+        if (dot.getAttribute('href').slice(1) === current) {
+          dot.classList.add('active');
+        }
+      });
+    });
+
+    // Custom Cursor Logic
+    const cursor = document.querySelector('.custom-cursor');
+    const cursorDot = document.querySelector('.custom-cursor-dot');
+    const links = document.querySelectorAll('a, button, .cursor-pointer');
+
+    window.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      cursorDot.style.left = e.clientX + 'px';
+      cursorDot.style.top = e.clientY + 'px';
+    });
+
+    links.forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        cursor.classList.add('cursor-hover');
+      });
+      link.addEventListener('mouseleave', () => {
+        cursor.classList.remove('cursor-hover');
+      });
+    });
+
+    // AI Terminal Effect
+    const terminal = document.getElementById('aiTerminal');
+    const messages = [
+      "Initializing Portfolio V2.0...",
+      "Loading UI/UX Design Engine...",
+      "Integrating AI Workflows...",
+      "Aesthetic Experience (AX) optimized.",
+      "Status: Ready for Innovation."
+    ];
+
+    async function typeMessage(text) {
+      const line = document.createElement('div');
+      line.className = 'terminal-line typing';
+      terminal.appendChild(line);
+      
+      for (let i = 0; i < text.length; i++) {
+        line.textContent += text[i];
+        await new Promise(r => setTimeout(r, 40));
+      }
+      line.classList.remove('typing');
+    }
+
+    async function startTerminal() {
+      if (!terminal) return;
+      terminal.innerHTML = '';
+      for (const msg of messages) {
+        await typeMessage(msg);
+        await new Promise(r => setTimeout(r, 800));
+      }
+    }
+    startTerminal();
+
+    // 3D Tilt Effect
+    const cards = document.querySelectorAll('.project-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / 8; // Increased sensitivity
+        const rotateY = (centerX - x) / 8;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      });
+    });
 </script>
 </body></html>
