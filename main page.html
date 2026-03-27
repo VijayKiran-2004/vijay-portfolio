@@ -203,6 +203,15 @@
         box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       }
+      @media (max-width: 768px) {
+        .marquee-item {
+          width: 280px;
+          margin: 0 0.75rem;
+        }
+        .marquee-item img {
+          height: 180px !important;
+        }
+      }
       .marquee-item:hover {
         transform: scale(1.08) translateY(-10px);
         z-index: 10;
@@ -415,7 +424,7 @@
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center gap-2">
           <span class="material-symbols-outlined text-primary text-2xl">account_circle</span>
-          <span class="text-xl font-bold text-gray-900 dark:text-white">Vijay Kiran Kesanapalli</span>
+          <span class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Vijay Kiran Kesanapalli</span>
         </div>
         <div class="hidden md:flex items-center gap-6">
           <a href="#home" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">Home</a>
@@ -459,7 +468,7 @@
 <div class="flex flex-col-reverse gap-10 @[864px]:flex-row @[864px]:gap-8">
 <div class="flex flex-col gap-6 text-center @[864px]:w-1/2 @[864px]:justify-center @[864px]:text-left">
 <div class="flex flex-col gap-2">
-<h1 class="text-4xl font-black leading-tight tracking-[-0.033em] text-gray-900 dark:text-white sm:text-5xl animate-fade-in">VIJAY KIRAN KESANAPALLI</h1>
+<h1 class="text-3xl font-black leading-tight tracking-[-0.033em] text-gray-900 dark:text-white sm:text-5xl animate-fade-in">VIJAY KIRAN KESANAPALLI</h1>
 <h2 class="text-base font-normal leading-normal text-gray-600 dark:text-gray-400 sm:text-lg animate-fade-in-delay">UI UX AX Designer and AI Engineer | Google, IBM, Oracle, Georgia Tech, ServiceNow Certified</h2>
 </div>
 <div class="flex flex-col items-center gap-4 sm:flex-row @[864px]:items-start">
@@ -594,7 +603,7 @@
 </div>
 <div>
 <h2 class="px-4 pb-6 pt-5 text-[22px] font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">Expertise</h2>
-<div id="skills" class="grid grid-cols-2 gap-4 auto-rows-[120px] px-4">
+<div id="skills" class="grid grid-cols-1 sm:grid-cols-2 gap-4 auto-rows-auto sm:auto-rows-[120px] px-4">
   <!-- AI Category -->
   <div class="col-span-2 row-span-1 rounded-2xl bg-gradient-to-br from-primary to-blue-600 p-6 flex items-center justify-between text-white shadow-xl group hover:scale-[1.02] hover:shadow-primary/20 transition-all duration-300 cursor-pointer">
     <div class="flex items-center gap-4">
