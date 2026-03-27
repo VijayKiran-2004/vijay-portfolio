@@ -393,7 +393,7 @@
       }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200 pt-24 relative">
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200 pt-24 relative overflow-x-hidden">
     <!-- Background Glows -->
     <div class="bg-glow glow-1"></div>
     <div class="bg-glow glow-2"></div>
@@ -416,10 +416,11 @@
     <!-- Custom Cursor -->
     <div class="custom-cursor"></div>
     <div class="custom-cursor-dot"></div>
-<div class="relative w-full overflow-x-hidden">
+
+<div class="w-full overflow-x-hidden relative">
 <!-- Navigation Header with Pebble Shape -->
-<div class="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8">
-  <nav class="max-w-6xl mx-auto bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md rounded-full shadow-lg border border-gray-200/50 dark:border-gray-700/50">
+<div class="fixed top-4 left-0 right-0 z-50 px-2 sm:px-6 lg:px-8">
+  <nav class="max-w-6xl mx-auto bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md rounded-2xl md:rounded-full shadow-lg border border-gray-200/50 dark:border-gray-700/50">
     <div class="px-6">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center gap-2">
@@ -464,9 +465,9 @@
 <div class="flex flex-1 justify-center py-5">
 <div class="flex max-w-5xl flex-1 flex-col px-4 sm:px-6 lg:px-8">
 <section class="py-16 sm:py-24" id="home">
-<div class="@container">
-<div class="flex flex-col-reverse gap-10 @[864px]:flex-row @[864px]:gap-8">
-<div class="flex flex-col gap-6 text-center @[864px]:w-1/2 @[864px]:justify-center @[864px]:text-left">
+<div class="max-w-6xl mx-auto">
+<div class="flex flex-col-reverse gap-10 md:flex-row md:gap-8 items-center md:items-start">
+<div class="flex flex-col gap-6 text-center md:w-1/2 md:justify-center md:text-left">
 <div class="flex flex-col gap-2">
 <h1 class="text-3xl font-black leading-tight tracking-[-0.033em] text-gray-900 dark:text-white sm:text-5xl animate-fade-in">VIJAY KIRAN KESANAPALLI</h1>
 <h2 class="text-base font-normal leading-normal text-gray-600 dark:text-gray-400 sm:text-lg animate-fade-in-delay">UI UX AX Designer and AI Engineer | Google, IBM, Oracle, Georgia Tech, ServiceNow Certified</h2>
@@ -484,7 +485,7 @@
 </a>
 </div>
 <!-- AI Terminal Decorative -->
-<div class="mt-8 @[864px]:mt-12 hidden @[864px]:block">
+<div class="mt-8 md:mt-12 hidden md:block">
   <div class="terminal-container w-full max-w-[450px]">
     <div class="terminal-header">
       <div class="dot red"></div>
@@ -497,7 +498,7 @@
   </div>
 </div>
 </div>
-<div class="w-full @[864px]:w-1/2">
+<div class="w-full md:w-1/2 flex justify-center md:justify-end">
 <div class="aspect-square w-full rounded-2xl bg-gradient-to-br from-primary/30 via-primary/15 to-transparent backdrop-blur-sm flex items-center justify-center border border-primary/20 shadow-2xl animate-scale-in">
 <div class="text-center">
 <div class="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-primary/30 shadow-xl">
@@ -513,8 +514,8 @@
 <section class="py-16 sm:py-24 scroll-reveal" id="projects">
 <h2 class="px-4 pb-6 pt-5 text-[22px] font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">Featured Projects</h2>
 <div class="grid grid-cols-1 gap-8 sm:grid-cols-2" style="perspective: 1000px;">
-<div class="rounded-xl project-card bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-800/60 dark:to-gray-900/40 backdrop-blur-lg p-6 shadow-lg border border-white/20 dark:border-gray-700/30 @container transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:border-primary/30">
-<div class="flex flex-col items-stretch justify-start gap-4 @xl:flex-row @xl:items-start">
+<div class="rounded-xl project-card bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-800/60 dark:to-gray-900/40 backdrop-blur-lg p-6 shadow-lg border border-white/20 dark:border-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:border-primary/30">
+<div class="flex flex-col items-stretch justify-start gap-4 md:flex-row md:items-start">
 <div class="w-full shrink-0 basis-1/2 rounded-lg bg-cover bg-center aspect-video overflow-hidden shadow-md" role="img" aria-label="Abstract gradient representing the first project" style='background-image: url("projects/case study/Alertraa/Alertraa logo_thumbnail.jpg");'></div>
 <div class="flex w-full grow flex-col items-stretch justify-center gap-3 py-2">
 <p class="text-lg font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">Alertra - WebApp Design/Dev (2025)</p>
@@ -532,8 +533,8 @@
 </div>
 </div>
 </div>
-<div class="rounded-xl project-card bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-800/60 dark:to-gray-900/40 backdrop-blur-lg p-6 shadow-lg border border-white/20 dark:border-gray-700/30 @container transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:border-primary/30">
-<div class="flex flex-col items-stretch justify-start gap-4 @xl:flex-row @xl:items-start">
+<div class="rounded-xl project-card bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-800/60 dark:to-gray-900/40 backdrop-blur-lg p-6 shadow-lg border border-white/20 dark:border-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:border-primary/30">
+<div class="flex flex-col items-stretch justify-start gap-4 md:flex-row md:items-start">
 <div class="w-full shrink-0 basis-1/2 rounded-lg bg-cover bg-center aspect-video overflow-hidden shadow-md" role="img" aria-label="Abstract pattern representing the second project" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBtnrxRMjD9OfDhKeprZbuZ7sMMqtA6KfGFP9AgJFh8h1q2ReVvOZ0NaUbwXE0YK7nVrVpo6IP8rJ5kcvym7pxdNYW_TNBCRlDl8vTPS22tfbIb4W3VTZb51-vjnbW5usxW8zqc_dhlJM5AxF0myPosrUl_Ocj96ZMtFlYH-lM5RhnHO4MZCmvuc4E-u1LqiKCDuo497UsRYS6Tea-VVF1HCoLCwyWAU_DO1BbbI0MztBGjVgw8f0M2TVIoZ2Tv7Yj8kiqfsZlsfNI");'></div>
 <div class="flex w-full grow flex-col items-stretch justify-center gap-3 py-2">
 <p class="text-lg font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">Vruksha Ai - App Design (2025)</p>
@@ -551,8 +552,8 @@
 </div>
 </div>
 </div>
-<div class="rounded-xl project-card bg-white p-4 shadow-sm dark:bg-background-dark/50 @container transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
-<div class="flex flex-col items-stretch justify-start gap-4 @xl:flex-row @xl:items-start">
+<div class="rounded-xl project-card bg-white p-4 shadow-sm dark:bg-background-dark/50 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+<div class="flex flex-col items-stretch justify-start gap-4 md:flex-row md:items-start">
 <div class="w-full shrink-0 basis-1/2 rounded-lg bg-cover bg-center aspect-video overflow-hidden" role="img" aria-label="Abstract texture representing the third project" style='background-image: url("projects/case study/eGo Bus case study/eGo Bus logo_thumbnail.jpg");'></div>
 <div class="flex w-full grow flex-col items-stretch justify-center gap-3 py-2">
 <p class="text-lg font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">E-Go Bus - App Design (2024)</p>
@@ -570,8 +571,8 @@
 </div>
 </div>
 </div>
-<div class="rounded-xl project-card bg-white p-4 shadow-sm dark:bg-background-dark/50 @container transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
-<div class="flex flex-col items-stretch justify-start gap-4 @xl:flex-row @xl:items-start">
+<div class="rounded-xl project-card bg-white p-4 shadow-sm dark:bg-background-dark/50 transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+<div class="flex flex-col items-stretch justify-start gap-4 md:flex-row md:items-start">
 <div class="w-full shrink-0 basis-1/2 rounded-lg bg-cover bg-center aspect-video overflow-hidden" role="img" aria-label="Abstract texture representing the fourth project" style='background-image: url("projects/case study/interest calculator case study/Interest calculator icon_thumbnail.jpg");'></div>
 <div class="flex w-full grow flex-col items-stretch justify-center gap-3 py-2">
 <p class="text-lg font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">Interest Calculator</p>
@@ -603,7 +604,7 @@
 </div>
 <div>
 <h2 class="px-4 pb-6 pt-5 text-[22px] font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">Expertise</h2>
-<div id="skills" class="grid grid-cols-1 sm:grid-cols-2 gap-4 auto-rows-auto sm:auto-rows-[120px] px-4">
+<div id="skills" class="grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-auto md:auto-rows-[120px] px-4">
   <!-- AI Category -->
   <div class="col-span-2 row-span-1 rounded-2xl bg-gradient-to-br from-primary to-blue-600 p-6 flex items-center justify-between text-white shadow-xl group hover:scale-[1.02] hover:shadow-primary/20 transition-all duration-300 cursor-pointer">
     <div class="flex items-center gap-4">
