@@ -205,11 +205,11 @@
       }
       @media (max-width: 768px) {
         .marquee-item {
-          width: 280px;
-          margin: 0 0.75rem;
+          width: 240px;
+          margin: 0 0.5rem;
         }
         .marquee-item img {
-          height: 180px !important;
+          height: 160px !important;
         }
       }
       .marquee-item:hover {
@@ -391,9 +391,17 @@
         transform-style: preserve-3d;
         transition: transform 0.1s ease-out;
       }
+      @media (max-width: 768px) {
+        body { font-size: 14px; }
+        .text-2xl { font-size: 1.25rem !important; }
+        .text-3xl { font-size: 1.5rem !important; }
+        h1.text-2xl { font-size: 24px !important; }
+        .marquee-item { width: 220px !important; margin: 0 0.25rem !important; }
+        .marquee-item img { height: 140px !important; }
+      }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200 pt-24 relative overflow-x-hidden">
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200 pt-20 relative overflow-x-hidden w-full">
     <!-- Background Glows -->
     <div class="bg-glow glow-1"></div>
     <div class="bg-glow glow-2"></div>
@@ -420,14 +428,14 @@
 <div class="w-full overflow-x-hidden relative">
 <!-- Navigation Header with Pebble Shape -->
 <div class="fixed top-4 left-0 right-0 z-50 px-2 sm:px-6 lg:px-8">
-  <nav class="max-w-6xl mx-auto bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md rounded-2xl md:rounded-full shadow-lg border border-gray-200/50 dark:border-gray-700/50">
-    <div class="px-6">
+  <nav class="max-w-6xl mx-auto bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md rounded-xl md:rounded-full shadow-lg border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
+    <div class="px-3 md:px-6">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center gap-2">
           <span class="material-symbols-outlined text-primary text-2xl">account_circle</span>
           <span class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Vijay Kiran Kesanapalli</span>
         </div>
-        <div class="hidden md:flex items-center gap-6">
+        <div class="hidden md:flex items-center gap-4 lg:gap-6">
           <a href="#home" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">Home</a>
           <a href="#projects" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">Projects</a>
           <a href="#about" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">About</a>
@@ -466,10 +474,10 @@
 <div class="flex max-w-5xl flex-1 flex-col px-4 sm:px-6 lg:px-8">
 <section class="py-16 sm:py-24" id="home">
 <div class="max-w-6xl mx-auto">
-<div class="flex flex-col-reverse gap-10 md:flex-row md:gap-8 items-center md:items-start">
-<div class="flex flex-col gap-6 text-center md:w-1/2 md:justify-center md:text-left">
-<div class="flex flex-col gap-2">
-<h1 class="text-3xl font-black leading-tight tracking-[-0.033em] text-gray-900 dark:text-white sm:text-5xl animate-fade-in">VIJAY KIRAN KESANAPALLI</h1>
+<div class="flex flex-col-reverse gap-8 md:flex-row md:gap-8 items-center md:items-start w-full">
+<div class="flex flex-col gap-4 text-center md:w-1/2 md:justify-center md:text-left w-full">
+<div class="flex flex-col gap-1 w-full overflow-hidden">
+<h1 class="text-[24px] font-black leading-tight tracking-[-0.033em] text-gray-900 dark:text-white sm:text-5xl animate-fade-in break-words whitespace-normal">VIJAY KIRAN KESANAPALLI</h1>
 <h2 class="text-base font-normal leading-normal text-gray-600 dark:text-gray-400 sm:text-lg animate-fade-in-delay">UI UX AX Designer and AI Engineer | Google, IBM, Oracle, Georgia Tech, ServiceNow Certified</h2>
 </div>
 <div class="flex flex-col items-center gap-4 sm:flex-row @[864px]:items-start">
@@ -499,7 +507,7 @@
 </div>
 </div>
 <div class="w-full md:w-1/2 flex justify-center md:justify-end">
-<div class="aspect-square w-full rounded-2xl bg-gradient-to-br from-primary/30 via-primary/15 to-transparent backdrop-blur-sm flex items-center justify-center border border-primary/20 shadow-2xl animate-scale-in">
+<div class="aspect-square w-full max-w-[320px] md:max-w-none rounded-2xl bg-gradient-to-br from-primary/30 via-primary/15 to-transparent backdrop-blur-sm flex items-center justify-center border border-primary/20 shadow-2xl animate-scale-in">
 <div class="text-center">
 <div class="w-64 h-64 mx-auto rounded-full overflow-hidden border-4 border-primary/30 shadow-xl">
 <img src="assets/images/vijay_pic.jpg" alt="Vijay Kiran Kesanapalli - UI/UX Designer" class="w-full h-full object-cover" loading="lazy"/>
@@ -604,9 +612,9 @@
 </div>
 <div>
 <h2 class="px-4 pb-6 pt-5 text-[22px] font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">Expertise</h2>
-<div id="skills" class="grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-auto md:auto-rows-[120px] px-4">
+<div id="skills" class="grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-auto px-4 w-full">
   <!-- AI Category -->
-  <div class="col-span-2 row-span-1 rounded-2xl bg-gradient-to-br from-primary to-blue-600 p-6 flex items-center justify-between text-white shadow-xl group hover:scale-[1.02] hover:shadow-primary/20 transition-all duration-300 cursor-pointer">
+  <div class="col-span-1 md:col-span-2 row-span-1 rounded-2xl bg-gradient-to-br from-primary to-blue-600 p-4 md:p-6 flex flex-col md:flex-row items-center justify-between text-white shadow-xl group hover:scale-[1.02] hover:shadow-primary/20 transition-all duration-300 cursor-pointer w-full overflow-hidden">
     <div class="flex items-center gap-4">
       <span class="material-symbols-outlined text-4xl group-hover:rotate-12 transition-transform">psychology</span>
       <div>
@@ -677,7 +685,7 @@
 </section>
 <section class="py-16 sm:py-24 scroll-reveal" id="achievements">
 <h2 class="px-4 pb-8 pt-5 text-[22px] font-bold leading-tight tracking-[-0.015em] text-gray-900 dark:text-white">Certificates &amp; Achievements</h2>
-<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 w-full">
 <a href="user data/Google UX professional certificate Coursera.pdf" target="_blank" class="flex flex-col gap-4 rounded-xl bg-gradient-to-br from-white/80 to-white/40 dark:from-gray-800/60 dark:to-gray-900/40 backdrop-blur-lg p-6 shadow-lg border border-white/20 dark:border-gray-700/30 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:border-primary/30 cursor-pointer">
 <div class="flex items-center gap-4">
 <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary/30 to-primary/10 text-primary shadow-md">
