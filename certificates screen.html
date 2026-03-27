@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
@@ -101,15 +101,21 @@
 
     #certificateModal .modal-content {
       background-color: #fff;
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-      max-width: 800px;
-      width: 90%;
+      border-radius: 1rem;
+      padding: 2rem;
+      max-width: 1000px; /* Increased card size */
+      width: 95%;
       position: relative;
       /* transition for subtle entrance */
       transform: translateY(6px) scale(0.995);
       opacity: 0;
       transition: transform 220ms cubic-bezier(.2,.9,.2,1), opacity 220ms ease-out;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    
+    .dark #certificateModal .modal-content {
+      background-color: #1a2633;
+      border: 1px solid rgba(255,255,255,0.1);
     }
 
     #certificateModal.show .modal-content {
@@ -147,7 +153,7 @@
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center gap-2">
           <span class="material-symbols-outlined text-primary text-2xl">account_circle</span>
-          <span class="text-xl font-bold text-gray-900 dark:text-white">Vijay Kiran K</span>
+          <span class="text-xl font-bold text-gray-900 dark:text-white">Vijay Kiran Kesanapalli</span>
         </div>
         <div class="hidden md:flex items-center gap-6">
           <a href="main page.html#home" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary hover:scale-110 transition-all duration-200">Home</a>
@@ -316,13 +322,43 @@
 </div>
 </a>
 
-<!-- Udemy AI for UX Research (JPG) -->
-<a href="user data/Udemy_Ai_for_UX_research-1.jpg" class="flex flex-col gap-3 pb-3 group cursor-pointer certificate-card rounded-xl bg-gradient-to-br from-white/60 to-white/30 dark:from-gray-800/50 dark:to-gray-900/30 backdrop-blur-md p-4 shadow-lg border border-white/20 dark:border-gray-700/30 hover:shadow-2xl hover:border-primary/30 transition-all duration-300">
-<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-lg overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:scale-105" role="img" aria-label="Udemy AI for UX Research Certificate" style="background-image: url('user data/Udemy_Ai_for_UX_research-1.jpg');"></div>
+<!-- AWS Certificate (JPG) -->
+<a href="user data/AWS_certificate.jpg" class="flex flex-col gap-3 pb-3 group cursor-pointer certificate-card rounded-xl bg-gradient-to-br from-white/60 to-white/30 dark:from-gray-800/50 dark:to-gray-900/30 backdrop-blur-md p-4 shadow-lg border border-white/20 dark:border-gray-700/30 hover:shadow-2xl hover:border-primary/30 transition-all duration-300">
+<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-lg overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:scale-105" role="img" aria-label="AWS Cloud Certificate" style="background-image: url('user data/AWS_certificate.jpg');"></div>
 <div class="px-1">
-<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">AI for UX Research</p>
-<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Udemy</p>
-<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Artificial Intelligence in UX</p>
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">AWS Cloud Practitioner</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Amazon Web Services</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Cloud Fundamentals</p>
+</div>
+</a>
+
+<!-- Oracle Certificate (JPG) -->
+<a href="user data/Oracle_Certificate.jpg" class="flex flex-col gap-3 pb-3 group cursor-pointer certificate-card rounded-xl bg-gradient-to-br from-white/60 to-white/30 dark:from-gray-800/50 dark:to-gray-900/30 backdrop-blur-md p-4 shadow-lg border border-white/20 dark:border-gray-700/30 hover:shadow-2xl hover:border-primary/30 transition-all duration-300">
+<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-lg overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:scale-105" role="img" aria-label="Oracle Certificate" style="background-image: url('user data/Oracle_Certificate.jpg');"></div>
+<div class="px-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Oracle Certified Associate</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Oracle University</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Professional Certification</p>
+</div>
+</a>
+
+<!-- Lloyds Banking Certificate (JPG) -->
+<a href="user data/Lloyds Banking Job simulation_certificate.jpg" class="flex flex-col gap-3 pb-3 group cursor-pointer certificate-card rounded-xl bg-gradient-to-br from-white/60 to-white/30 dark:from-gray-800/50 dark:to-gray-900/30 backdrop-blur-md p-4 shadow-lg border border-white/20 dark:border-gray-700/30 hover:shadow-2xl hover:border-primary/30 transition-all duration-300">
+<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-lg overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:scale-105" role="img" aria-label="Lloyds Banking Job Simulation Certificate" style="background-image: url('user data/Lloyds Banking Job simulation_certificate.jpg');"></div>
+<div class="px-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">Lloyds Banking Job Simulation</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Forage | Lloyds Banking Group</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Banking & Finance Experience</p>
+</div>
+</a>
+
+<!-- HP Life Certificate (JPG) -->
+<a href="user data/hp-Life certificate.jpg" class="flex flex-col gap-3 pb-3 group cursor-pointer certificate-card rounded-xl bg-gradient-to-br from-white/60 to-white/30 dark:from-gray-800/50 dark:to-gray-900/30 backdrop-blur-md p-4 shadow-lg border border-white/20 dark:border-gray-700/30 hover:shadow-2xl hover:border-primary/30 transition-all duration-300">
+<div class="w-full bg-center bg-no-repeat aspect-[16/10] bg-cover rounded-lg overflow-hidden shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:scale-105" role="img" aria-label="HP Life Certificate" style="background-image: url('user data/hp-Life certificate.jpg');"></div>
+<div class="px-1">
+<p class="text-gray-900 dark:text-white text-base font-medium leading-normal">HP LIFE Certification</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">HP Foundation</p>
+<p class="text-gray-500 dark:text-[#92adc9] text-sm font-normal leading-normal">Professional Development</p>
 </div>
 </a>
 </div>
@@ -368,11 +404,11 @@ function openModal(url) {
       const img = document.createElement('img');
       img.src = safe;
       img.alt = 'Certificate';
-      img.style.maxWidth = '90vw';
-      img.style.maxHeight = 'calc(90vh - 160px)';
+      img.style.maxWidth = '100%'; /* Fit container */
+      img.style.maxHeight = '80vh'; /* Keep on screen */
       img.style.display = 'block';
       img.style.margin = 'auto';
-      img.style.borderRadius = '0.75rem';
+      img.style.borderRadius = '0.5rem';
       img.style.boxShadow = '0 10px 30px rgba(0,0,0,0.2)';
       img.style.objectFit = 'contain';
       img.onerror = function() {
